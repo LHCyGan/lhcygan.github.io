@@ -4,37 +4,11 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/10/04/%E3%80%8AHorNet%20Efficient%20High-Order%20Spatial%20Interactions%20with%20Recursive%20Gated%20Convolutions%E3%80%8B/"/>
-    <url>/2022/10/04/%E3%80%8AHorNet%20Efficient%20High-Order%20Spatial%20Interactions%20with%20Recursive%20Gated%20Convolutions%E3%80%8B/</url>
-    
-    <content type="html"><![CDATA[<h3 id="《HorNet-Efficient-High-Order-Spatial-Interactions-with-Recursive-Gated-Convolutions》"><a href="#《HorNet-Efficient-High-Order-Spatial-Interactions-with-Recursive-Gated-Convolutions》" class="headerlink" title="《HorNet: Efficient High-Order Spatial Interactions with Recursive Gated Convolutions》"></a>《HorNet: Efficient High-Order Spatial Interactions with Recursive Gated Convolutions》</h3><h4 id="1-摘要简介"><a href="#1-摘要简介" class="headerlink" title="1.摘要简介"></a>1.摘要简介</h4><p>本文总结了vision transformer成功的关键因素是通过自注意力操作实现输入自适应、远程和高阶空间交互的空间建模新方法，也可以通过基于卷积的框架有效地实现，前人工作已经尝试过输入自适应、远程的方法迁移至CNN中，目前对高阶空间交互的方法没有尝试过，为此本文展示了所有三个关键成分都可以使用基于卷积的框架有效地实现。故而提出了gnconv这个即插即用的模块。该模块通过门控卷积和递归设计实现高阶空间相互作用。</p><h4 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h4><p>如图所示，门控卷积就是首先通过两个卷积层来调整特征通道数。接着，将深度可分离卷积的输出特征沿着特征分成多块，每一块与前一块交互的特征进一步进行逐元素相乘的方式进行交互，最终得到输出特征。这里递归就是不断地进行逐元素相乘操作，通过这种递归方式特征越在后面的特征高阶信息保存越多，这样在高阶中特征交互就会足够多。</p><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004164025323.png" alt="image-20221004164025323"></p><h4 id="3-实验"><a href="#3-实验" class="headerlink" title="3.实验"></a>3.实验</h4><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004165627518.png" alt="image-20221004165627518"></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2022/10/04/%E3%80%8AIDENTITY-SENSITIVE%20KNOWLEDGE%20PROPAGATION%20FOR%20CLOTH-CHANGING%20PERSON%20RE-IDENTIFICATION%E3%80%8B/"/>
-    <url>/2022/10/04/%E3%80%8AIDENTITY-SENSITIVE%20KNOWLEDGE%20PROPAGATION%20FOR%20CLOTH-CHANGING%20PERSON%20RE-IDENTIFICATION%E3%80%8B/</url>
-    
-    <content type="html"><![CDATA[<h3 id="《IDENTITY-SENSITIVE-KNOWLEDGE-PROPAGATION-FOR-CLOTH-CHANGING-PERSON-RE-IDENTIFICATION》"><a href="#《IDENTITY-SENSITIVE-KNOWLEDGE-PROPAGATION-FOR-CLOTH-CHANGING-PERSON-RE-IDENTIFICATION》" class="headerlink" title="《IDENTITY-SENSITIVE KNOWLEDGE PROPAGATION FOR CLOTH-CHANGING PERSON RE-IDENTIFICATION》"></a>《IDENTITY-SENSITIVE KNOWLEDGE PROPAGATION FOR CLOTH-CHANGING PERSON RE-IDENTIFICATION》</h3><h4 id="1-摘要简介"><a href="#1-摘要简介" class="headerlink" title="1.摘要简介"></a>1.摘要简介</h4><p>  目前，典型的基于生物识别的换衣行人重识别方法往往需要繁琐的姿势或身体部位估计器来学习与衣服不相关的的特征，这带来了很高的计算成本。此外，由于监控图像的分辨率下降，性能受到很大限制。为了解决上述限制，本文提出了一个有效的身份敏感的信息传播框架(DeSKPro) 用于换衣行人重识别。通过从人体解析模块获取信息引入了一个与衣服不相关的空间注意力模块，以消除服装外观的干扰；人同时为了缓解分辨率下降的问题问题，并从人脸中挖掘身份敏感的线索，本文使用已有的面部信息来恢复丢失的面部细节，然后传播到一个较小的网络获取面部特征。</p><h4 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h4><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004153039005.png" alt="image-20221004153039005"></p><h4 id="3-具体方法"><a href="#3-具体方法" class="headerlink" title="3.具体方法"></a>3.具体方法</h4><ul><li><strong>1.Mask-Guided Cloth-irrelevant Feature Stream</strong></li></ul><blockquote><ul><li>结构</li></ul></blockquote><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004153425625.png" alt="image-20221004153425625"></p><blockquote><ul><li><p>OSNet Block &lt;<Omni-Scale Feature Learning for Person Re-Identification>&gt;</p><p>文章提出了全尺度(omni-scale)学习的概念，并就此提出了全尺度学习的网络OSNet，来解决ReID中需要关注不同尺度特征流的问题</p><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004161500102.png" alt="image-20221004161500102"></p></li></ul></blockquote><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004154121462.png" alt="image-20221004154121462"></p><blockquote><ul><li>MBN</li></ul><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004154433586.png" alt="image-20221004154433586"></p><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004155155093.png" alt="image-20221004155155093"></p><ul><li>L_attn</li></ul></blockquote><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004153820445.png" alt="image-20221004153820445"></p><ul><li><strong>2.Facial Feature Enhancement Stream</strong></li></ul><blockquote><ul><li>结构</li></ul><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004155742099.png" alt="image-20221004155742099"></p><ul><li>L_fkp</li></ul><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004160320392.png" alt="image-20221004160320392"></p></blockquote><h4 id="4-损失函数"><a href="#4-损失函数" class="headerlink" title="4.损失函数"></a>4.损失函数</h4><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004160408226.png" alt="image-20221004160408226"></p><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004160421401.png" alt="image-20221004160421401"></p><h4 id="5-实验"><a href="#5-实验" class="headerlink" title="5.实验"></a>5.实验</h4><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004160815903.png" alt="image-20221004160815903"></p><p><img src="C:\Users\26440\AppData\Roaming\Typora\typora-user-images\image-20221004160851508.png" alt="image-20221004160851508"></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>测试文章</title>
     <link href="/2022/10/04/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
     <url>/2022/10/04/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
     
-    <content type="html"><![CDATA[<hr><p>title: 测试文章<br>date: 2021-06-10 16:35:20<br>tags:</p><ul><li>原创<br>categories:</li><li>Java</li></ul><hr><p>这是一篇测试文章</p><img src="/2022/10/04/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.png" class="" title="图片引用方法一"><p><img src="/test.png" alt="图片引用方法二"></p><p><img src="/images/test.png" alt="图片引用方法三"></p>]]></content>
+    <content type="html"><![CDATA[<hr><p>title: 测试文章<br>date: 2021-06-10 16:35:20<br>tags:</p><ul><li>原创<br>categories:</li><li>Java</li></ul><hr><p>这是一篇测试文章</p><p><img src="/./%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.png" alt="图片引用方法二"></p><p><img src="/./%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.png" alt="图片引用方法三"></p>]]></content>
     
     
     
