@@ -87,7 +87,7 @@
 <meta property="og:description" content="爱丽丝和鲍勃继续他们的石子游戏。许多堆石子 排成一行，每堆都有正整数颗石子 piles[i]。游戏以谁手中的石子最多来决出胜负。 爱丽丝和鲍勃轮流进行，爱丽丝先开始。最初，M &#x3D; 1。 在每个玩家的回合中，该玩家可以拿走剩下的 前 X 堆的所有石子，其中 1 &lt;&#x3D; X &lt;&#x3D; 2M。然后，令 M &#x3D; max(M, X)。 游戏一直持续到所有石子都被拿走。 假设爱丽丝和鲍勃都发挥出最佳水平">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-22T01:13:56.000Z">
-<meta property="article:modified_time" content="2023-02-22T01:38:23.975Z">
+<meta property="article:modified_time" content="2023-02-22T11:34:47.705Z">
 <meta property="article:author" content="刘恒">
 <meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="记忆化搜索">
@@ -413,6 +413,8 @@
 <p>在每个玩家的回合中，该玩家可以拿走剩下的 <strong>前</strong> <code>X</code> 堆的所有石子，其中 <code>1 &lt;= X &lt;= 2M</code>。然后，令 <code>M = max(M, X)</code>。</p>
 <p>游戏一直持续到所有石子都被拿走。</p>
 <p>假设爱丽丝和鲍勃都发挥出最佳水平，返回爱丽丝可以得到的最大数量的石头。</p>
+<span id="more"></span>
+
 <hr>
 <p><strong>示例：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：piles = [2,7,9,4,4]</span><br><span class="line">输出：10</span><br><span class="line">解释：如果一开始Alice取了一堆，Bob取了两堆，然后Alice再取两堆。爱丽丝可以得到2 + 4 + 4 = 10堆。如果Alice一开始拿走了两堆，那么Bob可以拿走剩下的三堆。在这种情况下，Alice得到2 + 7 = 9堆。返回10，因为它更大。</span><br></pre></td></tr></table></figure>
