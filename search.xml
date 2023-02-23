@@ -63,6 +63,50 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode1238.循环码排列</title>
+    <url>/2023/02/23/leetcode1238/</url>
+    <content><![CDATA[<p>给你两个整数 <code>n</code> 和 <code>start</code>。你的任务是返回任意 <code>(0,1,2,,...,2^n-1)</code> 的排列 <code>p</code>，并且满足：</p>
+<ul>
+<li><code>p[0] = start</code></li>
+<li><code>p[i]</code> 和 <code>p[i+1]</code> 的二进制表示形式只有一位不同</li>
+<li><code>p[0]</code> 和 <code>p[2^n -1]</code> 的二进制表示形式也只有一位不同</li>
+</ul>
+<span id="more"></span>
+
+
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 2, start = 3</span><br><span class="line">输出：[3,2,0,1]</span><br><span class="line">解释：这个排列的二进制表示是 (11,10,00,01)</span><br><span class="line">     所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格雷码：(0,1,2,,...,2^n-1) 排列为一圈，相邻两项之间只有一位不同</span><br><span class="line">求格雷码：</span><br><span class="line">	1.对称</span><br><span class="line">	2.高位补1，低位补0</span><br><span class="line">题目要求从start开始，因此最后需要和start异或</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">circularPermutation</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; a&#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="comment">// 求格雷码</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; b = a;</span><br><span class="line">            <span class="comment">// 对称</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = a.<span class="built_in">size</span>() - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j --) </span><br><span class="line">                b.<span class="built_in">push_back</span>(a[j] + (<span class="number">1</span> &lt;&lt; i)); <span class="comment">// 高位补1</span></span><br><span class="line">            a = b;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">// 保证从start开始</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>&amp; x : a) x ^= start;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h4></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">circularPermutation</span><span class="params">(n <span class="type">int</span>, start <span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">    a := []<span class="type">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>;i &lt; n;i ++&#123;</span><br><span class="line">        <span class="keyword">var</span> b = a</span><br><span class="line">        <span class="keyword">for</span> j := <span class="built_in">len</span>(a) - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j -- &#123;</span><br><span class="line">            b = <span class="built_in">append</span>(b, a[j] + (<span class="number">1</span> &lt;&lt; i))</span><br><span class="line">        &#125;</span><br><span class="line">        a = b</span><br><span class="line">    &#125;</span><br><span class="line">    i := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, x := <span class="keyword">range</span> a &#123;</span><br><span class="line">        x ^= start</span><br><span class="line">        a[i] = x</span><br><span class="line">        i ++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/circular-permutation-in-binary-representation/description/">1238. 循环码排列 - 力扣（Leetcode）</a>)</p>
+<p>[相似题目](<a href="https://leetcode.cn/problems/gray-code/description/">89. 格雷编码 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>二进制</category>
+        <category>位运算</category>
+      </categories>
+      <tags>
+        <tag>格雷码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode1326.灌溉花园的最少水龙头数目</title>
     <url>/2023/02/21/leetcode1326/</url>
     <content><![CDATA[<p>在 x 轴上有一个一维的花园。花园长度为 <code>n</code>，从点 <code>0</code> 开始，到点 <code>n</code> 结束。</p>
