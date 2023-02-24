@@ -88,47 +88,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode126.单词接龙Ⅱ</title>
-    <url>/2023/02/23/leetcode126/</url>
-    <content><![CDATA[<p>按字典 <code>wordList</code> 完成从单词 <code>beginWord</code> 到单词 <code>endWord</code> 转化，一个表示此过程的 <strong>转换序列</strong> 是形式上像 <code>beginWord -&gt; s1 -&gt; s2 -&gt; ... -&gt; sk</code> 这样的单词序列，并满足：</p>
-<ul>
-<li>每对相邻的单词之间仅有单个字母不同。</li>
-<li>转换过程中的每个单词 <code>si</code>（<code>1 &lt;= i &lt;= k</code>）必须是字典 <code>wordList</code> 中的单词。注意，<code>beginWord</code> 不必是字典 <code>wordList</code> 中的单词。</li>
-<li><code>sk == endWord</code></li>
-</ul>
-<p>给你两个单词 <code>beginWord</code> 和 <code>endWord</code> ，以及一个字典 <code>wordList</code> 。请你找出并返回所有从 <code>beginWord</code> 到 <code>endWord</code> 的 <strong>最短转换序列</strong> ，如果不存在这样的转换序列，返回一个空列表。每个序列都应该以单词列表 <code>[beginWord, s1, s2, ..., sk]</code> 的形式返回。</p>
-<span id="more"></span>
-
-
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：beginWord = &quot;hit&quot;, endWord = &quot;cog&quot;, wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]</span><br><span class="line">输出：[[&quot;hit&quot;,&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;cog&quot;],[&quot;hit&quot;,&quot;hot&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]]</span><br><span class="line">解释：存在 2 种最短的转换序列：</span><br><span class="line">&quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;</span><br><span class="line">&quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;lot&quot; -&gt; &quot;log&quot; -&gt; &quot;cog&quot;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">由于题目要求没对相邻单词之间仅有单个字母不同，即从当前状态到下一个状态代价为1，同时题目要求最短转化路近，因此问题转化为BFS求最短路问题</span><br><span class="line"></span><br><span class="line">1、首先，利用BFS逆向求出每个单词到endWord的单源最短路径</span><br><span class="line">2、在利用DFS求最短路径，某个单词在要最短路上，距离一定等于最小距离</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> len, min_dis;</span><br><span class="line">    unordered_set&lt;string&gt; seen; <span class="comment">// 合理的单词</span></span><br><span class="line">    unordered_map&lt;string, <span class="type">int</span>&gt; d; <span class="comment">//距离</span></span><br><span class="line">    string ed;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; res; <span class="comment">// 所有路径</span></span><br><span class="line">    vector&lt;string&gt; p; <span class="comment">// 单个路径</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        queue&lt;string&gt; q;</span><br><span class="line">        q.<span class="built_in">push</span>(ed);</span><br><span class="line">        d[ed] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> u = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len;i ++) &#123;</span><br><span class="line">                string v = u;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;ch &lt;= <span class="string">&#x27;z&#x27;</span>;ch ++) &#123;</span><br><span class="line">                    v[i] = ch;</span><br><span class="line">                    <span class="keyword">if</span> (seen.<span class="built_in">find</span>(v) == seen.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (d.<span class="built_in">find</span>(v) == d.<span class="built_in">end</span>()) d[v] = d[u] + <span class="number">1</span>, q.<span class="built_in">push</span>(v);</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">const</span> string&amp; u)</span> </span>&#123;</span><br><span class="line">        p.<span class="built_in">push_back</span>(u);</span><br><span class="line">        <span class="keyword">if</span> (u == ed) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(p);</span><br><span class="line">            p.<span class="built_in">pop_back</span>(); <span class="comment">// 求取多个路径</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len;i ++) &#123;</span><br><span class="line">            string v = u;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;ch &lt;= <span class="string">&#x27;z&#x27;</span>;ch ++) &#123;</span><br><span class="line">                v[i] = ch;</span><br><span class="line">                <span class="keyword">if</span> (seen.<span class="built_in">find</span>(v) == seen.<span class="built_in">end</span>() || d.<span class="built_in">find</span>(v) == d.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (p.<span class="built_in">size</span>() + d[v] == min_dis)</span><br><span class="line">                    <span class="built_in">dfs</span>(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        p.<span class="built_in">pop_back</span>(); <span class="comment">// 回溯</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">findLadders</span>(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) &#123;</span><br><span class="line">        len = beginWord.<span class="built_in">size</span>();</span><br><span class="line">        seen = <span class="built_in">unordered_set</span>&lt;string&gt;(wordList.<span class="built_in">begin</span>(), wordList.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">if</span> (seen.<span class="built_in">find</span>(endWord) == seen.<span class="built_in">end</span>()) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        seen.<span class="built_in">insert</span>(beginWord);</span><br><span class="line">        ed = endWord;</span><br><span class="line">        <span class="built_in">bfs</span>();</span><br><span class="line">        min_dis = d[beginWord];</span><br><span class="line">        <span class="built_in">dfs</span>(beginWord);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/word-ladder-ii/description/">126. 单词接龙 II - 力扣（Leetcode）</a>)</p>
-<p>[相似题目](<a href="https://leetcode.cn/problems/word-ladder/">127. 单词接龙 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>DFS</tag>
-        <tag>BFS</tag>
-        <tag>最短路</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode127.单词接龙</title>
     <url>/2023/02/23/leetcode127/</url>
     <content><![CDATA[<p>字典 <code>wordList</code> 中从单词 <code>beginWord</code> 和 <code>endWord</code> 的 <strong>转换序列</strong> 是一个按下述规格形成的序列 <code>beginWord -&gt; s1 -&gt; s2 -&gt; ... -&gt; sk</code>：</p>
@@ -183,33 +142,44 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode1326.灌溉花园的最少水龙头数目</title>
-    <url>/2023/02/21/leetcode1326/</url>
-    <content><![CDATA[<p>在 x 轴上有一个一维的花园。花园长度为 <code>n</code>，从点 <code>0</code> 开始，到点 <code>n</code> 结束。</p>
-<p>花园里总共有 <code>n + 1</code> 个水龙头，分别位于 <code>[0, 1, ..., n]</code> 。</p>
-<p>给你一个整数 <code>n</code> 和一个长度为 <code>n + 1</code> 的整数数组 <code>ranges</code> ，其中 <code>ranges[i]</code> （下标从 0 开始）表示：如果打开点 <code>i</code> 处的水龙头，可以灌溉的区域为 <code>[i - ranges[i], i + ranges[i]]</code> 。</p>
-<p>请你返回可以灌溉整个花园的 <strong>最少水龙头数目</strong> 。如果花园始终存在无法灌溉到的地方，请你返回 <strong>-1</strong> 。</p>
+    <title>leetcode126.单词接龙Ⅱ</title>
+    <url>/2023/02/23/leetcode126/</url>
+    <content><![CDATA[<p>按字典 <code>wordList</code> 完成从单词 <code>beginWord</code> 到单词 <code>endWord</code> 转化，一个表示此过程的 <strong>转换序列</strong> 是形式上像 <code>beginWord -&gt; s1 -&gt; s2 -&gt; ... -&gt; sk</code> 这样的单词序列，并满足：</p>
+<ul>
+<li>每对相邻的单词之间仅有单个字母不同。</li>
+<li>转换过程中的每个单词 <code>si</code>（<code>1 &lt;= i &lt;= k</code>）必须是字典 <code>wordList</code> 中的单词。注意，<code>beginWord</code> 不必是字典 <code>wordList</code> 中的单词。</li>
+<li><code>sk == endWord</code></li>
+</ul>
+<p>给你两个单词 <code>beginWord</code> 和 <code>endWord</code> ，以及一个字典 <code>wordList</code> 。请你找出并返回所有从 <code>beginWord</code> 到 <code>endWord</code> 的 <strong>最短转换序列</strong> ，如果不存在这样的转换序列，返回一个空列表。每个序列都应该以单词列表 <code>[beginWord, s1, s2, ..., sk]</code> 的形式返回。</p>
 <span id="more"></span>
+
+
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 5, ranges = [3,4,1,1,0,0]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">点 0 处的水龙头可以灌溉区间 [-3,3]</span><br><span class="line">点 1 处的水龙头可以灌溉区间 [-3,5]</span><br><span class="line">点 2 处的水龙头可以灌溉区间 [1,3]</span><br><span class="line">点 3 处的水龙头可以灌溉区间 [2,4]</span><br><span class="line">点 4 处的水龙头可以灌溉区间 [4,4]</span><br><span class="line">点 5 处的水龙头可以灌溉区间 [5,5]</span><br><span class="line">只需要打开点 1 处的水龙头即可灌溉整个花园 [0,5] 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：beginWord = &quot;hit&quot;, endWord = &quot;cog&quot;, wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]</span><br><span class="line">输出：[[&quot;hit&quot;,&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;cog&quot;],[&quot;hit&quot;,&quot;hot&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]]</span><br><span class="line">解释：存在 2 种最短的转换序列：</span><br><span class="line">&quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;</span><br><span class="line">&quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;lot&quot; -&gt; &quot;log&quot; -&gt; &quot;cog&quot;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">由于花园的长度为n，可以将问题转化为选择最少的水龙头覆盖整个区间</span><br><span class="line">做法：</span><br><span class="line">	按照左端点排序，假设当前覆盖到的区间右端点为ed，只需要满足选择的子区间的左端点小于ed同时尽可能使ed变的更大</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">由于题目要求没对相邻单词之间仅有单个字母不同，即从当前状态到下一个状态代价为1，同时题目要求最短转化路近，因此问题转化为BFS求最短路问题</span><br><span class="line"></span><br><span class="line">1、首先，利用BFS逆向求出每个单词到endWord的单源最短路径</span><br><span class="line">2、在利用DFS求最短路径，某个单词在要最短路上，距离一定等于最小距离</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minTaps</span><span class="params">(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; ranges)</span> </span>&#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">r</span>(n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt;= n;i ++)</span><br><span class="line">            r[i] = <span class="built_in">make_pair</span>(<span class="built_in">max</span>(<span class="number">0</span>, i - ranges[i]), <span class="built_in">min</span>(ranges[i] + i, n));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(r.<span class="built_in">begin</span>(), r.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, ed = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= n &amp;&amp; ed &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> next_ed = <span class="number">0</span>; <span class="comment">// 下一次的覆盖末端点</span></span><br><span class="line">            <span class="keyword">while</span> (i &lt;= n &amp;&amp; r[i].first &lt;= ed) &#123;</span><br><span class="line">                next_ed = <span class="built_in">max</span>(next_ed, r[i].second);</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (ed == next_ed) <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 当ed == nexted 时无法在选择新区间</span></span><br><span class="line"></span><br><span class="line">            res ++;</span><br><span class="line">            ed = next_ed;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> len, min_dis;</span><br><span class="line">    unordered_set&lt;string&gt; seen; <span class="comment">// 合理的单词</span></span><br><span class="line">    unordered_map&lt;string, <span class="type">int</span>&gt; d; <span class="comment">//距离</span></span><br><span class="line">    string ed;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; res; <span class="comment">// 所有路径</span></span><br><span class="line">    vector&lt;string&gt; p; <span class="comment">// 单个路径</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        queue&lt;string&gt; q;</span><br><span class="line">        q.<span class="built_in">push</span>(ed);</span><br><span class="line">        d[ed] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> u = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len;i ++) &#123;</span><br><span class="line">                string v = u;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;ch &lt;= <span class="string">&#x27;z&#x27;</span>;ch ++) &#123;</span><br><span class="line">                    v[i] = ch;</span><br><span class="line">                    <span class="keyword">if</span> (seen.<span class="built_in">find</span>(v) == seen.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (d.<span class="built_in">find</span>(v) == d.<span class="built_in">end</span>()) d[v] = d[u] + <span class="number">1</span>, q.<span class="built_in">push</span>(v);</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">const</span> string&amp; u)</span> </span>&#123;</span><br><span class="line">        p.<span class="built_in">push_back</span>(u);</span><br><span class="line">        <span class="keyword">if</span> (u == ed) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(p);</span><br><span class="line">            p.<span class="built_in">pop_back</span>(); <span class="comment">// 求取多个路径</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len;i ++) &#123;</span><br><span class="line">            string v = u;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;ch &lt;= <span class="string">&#x27;z&#x27;</span>;ch ++) &#123;</span><br><span class="line">                v[i] = ch;</span><br><span class="line">                <span class="keyword">if</span> (seen.<span class="built_in">find</span>(v) == seen.<span class="built_in">end</span>() || d.<span class="built_in">find</span>(v) == d.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (p.<span class="built_in">size</span>() + d[v] == min_dis)</span><br><span class="line">                    <span class="built_in">dfs</span>(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        p.<span class="built_in">pop_back</span>(); <span class="comment">// 回溯</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">findLadders</span>(string beginWord, string endWord, vector&lt;string&gt;&amp; wordList) &#123;</span><br><span class="line">        len = beginWord.<span class="built_in">size</span>();</span><br><span class="line">        seen = <span class="built_in">unordered_set</span>&lt;string&gt;(wordList.<span class="built_in">begin</span>(), wordList.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">if</span> (seen.<span class="built_in">find</span>(endWord) == seen.<span class="built_in">end</span>()) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        seen.<span class="built_in">insert</span>(beginWord);</span><br><span class="line">        ed = endWord;</span><br><span class="line">        <span class="built_in">bfs</span>();</span><br><span class="line">        min_dis = d[beginWord];</span><br><span class="line">        <span class="built_in">dfs</span>(beginWord);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>[原题链接](<a href="https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden/description/">1326. 灌溉花园的最少水龙头数目 - 力扣（Leetcode）</a>)</p>
+<p>[原题链接](<a href="https://leetcode.cn/problems/word-ladder-ii/description/">126. 单词接龙 II - 力扣（Leetcode）</a>)</p>
+<p>[相似题目](<a href="https://leetcode.cn/problems/word-ladder/">127. 单词接龙 - 力扣（Leetcode）</a>)</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>贪心</tag>
+        <tag>BFS</tag>
+        <tag>DFS</tag>
+        <tag>最短路</tag>
       </tags>
   </entry>
   <entry>
@@ -246,6 +216,36 @@
       <tags>
         <tag>思维题</tag>
         <tag>哈希表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode1326.灌溉花园的最少水龙头数目</title>
+    <url>/2023/02/21/leetcode1326/</url>
+    <content><![CDATA[<p>在 x 轴上有一个一维的花园。花园长度为 <code>n</code>，从点 <code>0</code> 开始，到点 <code>n</code> 结束。</p>
+<p>花园里总共有 <code>n + 1</code> 个水龙头，分别位于 <code>[0, 1, ..., n]</code> 。</p>
+<p>给你一个整数 <code>n</code> 和一个长度为 <code>n + 1</code> 的整数数组 <code>ranges</code> ，其中 <code>ranges[i]</code> （下标从 0 开始）表示：如果打开点 <code>i</code> 处的水龙头，可以灌溉的区域为 <code>[i - ranges[i], i + ranges[i]]</code> 。</p>
+<p>请你返回可以灌溉整个花园的 <strong>最少水龙头数目</strong> 。如果花园始终存在无法灌溉到的地方，请你返回 <strong>-1</strong> 。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 5, ranges = [3,4,1,1,0,0]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">点 0 处的水龙头可以灌溉区间 [-3,3]</span><br><span class="line">点 1 处的水龙头可以灌溉区间 [-3,5]</span><br><span class="line">点 2 处的水龙头可以灌溉区间 [1,3]</span><br><span class="line">点 3 处的水龙头可以灌溉区间 [2,4]</span><br><span class="line">点 4 处的水龙头可以灌溉区间 [4,4]</span><br><span class="line">点 5 处的水龙头可以灌溉区间 [5,5]</span><br><span class="line">只需要打开点 1 处的水龙头即可灌溉整个花园 [0,5] 。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">由于花园的长度为n，可以将问题转化为选择最少的水龙头覆盖整个区间</span><br><span class="line">做法：</span><br><span class="line">	按照左端点排序，假设当前覆盖到的区间右端点为ed，只需要满足选择的子区间的左端点小于ed同时尽可能使ed变的更大</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minTaps</span><span class="params">(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; ranges)</span> </span>&#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">r</span>(n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt;= n;i ++)</span><br><span class="line">            r[i] = <span class="built_in">make_pair</span>(<span class="built_in">max</span>(<span class="number">0</span>, i - ranges[i]), <span class="built_in">min</span>(ranges[i] + i, n));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(r.<span class="built_in">begin</span>(), r.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, ed = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= n &amp;&amp; ed &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> next_ed = <span class="number">0</span>; <span class="comment">// 下一次的覆盖末端点</span></span><br><span class="line">            <span class="keyword">while</span> (i &lt;= n &amp;&amp; r[i].first &lt;= ed) &#123;</span><br><span class="line">                next_ed = <span class="built_in">max</span>(next_ed, r[i].second);</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (ed == next_ed) <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 当ed == nexted 时无法在选择新区间</span></span><br><span class="line"></span><br><span class="line">            res ++;</span><br><span class="line">            ed = next_ed;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden/description/">1326. 灌溉花园的最少水龙头数目 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
