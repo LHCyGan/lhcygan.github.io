@@ -94,7 +94,7 @@
 <meta property="og:description" content="给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。 求在该柱状图中，能够勾勒出来的矩形的最大面积。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-23T06:12:30.000Z">
-<meta property="article:modified_time" content="2023-02-23T07:22:54.043Z">
+<meta property="article:modified_time" content="2023-02-24T01:29:13.370Z">
 <meta property="article:author" content="刘恒">
 <meta property="article:tag" content="单调栈">
 <meta property="article:tag" content="单调队列">
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  436
+                  456
                 </span>
               
 
@@ -448,6 +448,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">largestRectangleArea</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = heights.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> l[N], r[N], q[N];</span><br><span class="line">        <span class="type">int</span> tt = <span class="number">0</span>;</span><br><span class="line">        q[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        heights.<span class="built_in">insert</span>(heights.<span class="built_in">begin</span>(), <span class="number">-1</span>);</span><br><span class="line">        heights.<span class="built_in">push_back</span>(<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (heights[i] &lt;= heights[q[tt]]) tt --;</span><br><span class="line">            l[i] = q[tt];</span><br><span class="line">            q[++ tt] = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tt = <span class="number">0</span>;</span><br><span class="line">        q[<span class="number">0</span>] = n + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n;i &gt;= <span class="number">1</span>;i --) &#123;</span><br><span class="line">            <span class="keyword">while</span> (heights[i] &lt;= heights[q[tt]]) tt --;</span><br><span class="line">            r[i] = q[tt];</span><br><span class="line">            q[++ tt] = i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) </span><br><span class="line">            res = <span class="built_in">max</span>(res, (r[i] - l[i] - <span class="number">1</span>) * heights[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>[原题链接](<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectangle-in-histogram/description/">84. 柱状图中最大的矩形 - 力扣（Leetcode）</a>)</p>
+<p>[相似题目](<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/make-array-zero-by-subtracting-equal-amounts/description/">2357. 使数组中所有元素都等于零 - 力扣（Leetcode）</a>)</p>
 
       
     </div>
@@ -573,7 +574,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -595,7 +596,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -678,7 +679,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.6k</span>
+    <span title="Site words total count">4.3k</span>
   
 </div>
 
