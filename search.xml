@@ -103,6 +103,39 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode05.最长回文子串</title>
+    <url>/2023/02/27/leetcode05/</url>
+    <content><![CDATA[<p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<p>如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">枚举中心点</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i ++ ) &#123;</span><br><span class="line">            <span class="type">int</span> l = i - <span class="number">1</span>, r = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &gt;= <span class="number">0</span> &amp;&amp; r &lt; s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++ ;</span><br><span class="line">            <span class="keyword">if</span> (res.<span class="built_in">size</span>() &lt; r - l - <span class="number">1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            l = i, r = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &gt;= <span class="number">0</span> &amp;&amp; r &lt; s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++ ;</span><br><span class="line">            <span class="keyword">if</span> (res.<span class="built_in">size</span>() &lt; r - l - <span class="number">1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/longest-palindromic-substring/description/">5. 最长回文子串 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode04.寻找两个正序数组的中位数</title>
     <url>/2023/02/27/leetcode04/</url>
     <content><![CDATA[<p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>
@@ -136,20 +169,22 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode05.最长回文子串</title>
-    <url>/2023/02/27/leetcode05/</url>
-    <content><![CDATA[<p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
-<p>如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
+    <title>leetcode06.N字形变换</title>
+    <url>/2023/02/28/leetcode06/</url>
+    <content><![CDATA[<p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
+<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">枚举中心点</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">按行枚举，flag控制方向</span><br></pre></td></tr></table></figure>
 
 
 
@@ -157,15 +192,152 @@
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
 <li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i ++ ) &#123;</span><br><span class="line">            <span class="type">int</span> l = i - <span class="number">1</span>, r = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &gt;= <span class="number">0</span> &amp;&amp; r &lt; s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++ ;</span><br><span class="line">            <span class="keyword">if</span> (res.<span class="built_in">size</span>() &lt; r - l - <span class="number">1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            l = i, r = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &gt;= <span class="number">0</span> &amp;&amp; r &lt; s.<span class="built_in">size</span>() &amp;&amp; s[l] == s[r]) l --, r ++ ;</span><br><span class="line">            <span class="keyword">if</span> (res.<span class="built_in">size</span>() &lt; r - l - <span class="number">1</span>) res = s.<span class="built_in">substr</span>(l + <span class="number">1</span>, r - l - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (numRows == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">lines</span><span class="params">(numRows)</span></span>;</span><br><span class="line">        <span class="type">int</span> flag = <span class="number">1</span>, i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            lines[i] += c;</span><br><span class="line">            i += flag;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">-1</span> || i == numRows) &#123;</span><br><span class="line">                flag = -flag;</span><br><span class="line">                i += <span class="number">2</span> * flag;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> string&amp; line: lines) &#123;</span><br><span class="line">            res += line;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>[原题链接](<a href="https://leetcode.cn/problems/longest-palindromic-substring/description/">5. 最长回文子串 - 力扣（Leetcode）</a>)</p>
+<p>[原题链接](<a href="https://leetcode.cn/problems/zigzag-conversion/">6. N 字形变换 - 力扣（Leetcode）</a>)</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
         <tag>模拟</tag>
+        <tag>找规律</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode07.整数反转</title>
+    <url>/2023/02/28/leetcode07/</url>
+    <content><![CDATA[<p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
+<p>如果反转后整数超过 32 位的有符号整数的范围 <code>[−231, 231 − 1]</code> ，就返回 0。</p>
+<p><strong>假设环境不允许存储 64 位整数（有符号或无符号）。</strong></p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：x = 123</span><br><span class="line">输出：321</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不允许使用64位存储，因此需要提前判断</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reverse</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x) &#123;</span><br><span class="line">            <span class="keyword">if</span> (r &gt; <span class="number">0</span> &amp;&amp; r &gt; (INT_MAX - x % <span class="number">10</span>) / <span class="number">10</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// r * 10 + x % 10 &lt;= INT_MAX ==&gt; r &gt; (INT_MAX - x % 10) / 10</span></span><br><span class="line">            <span class="keyword">if</span> (r &lt; <span class="number">0</span> &amp;&amp; r &lt; (INT_MIN - x % <span class="number">10</span>) / <span class="number">10</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//  r * 10 + x % 10 &gt;= INT_MIN ==&gt; r &lt; (INT_MIN - x % 10) / 10</span></span><br><span class="line">            r = r * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/reverse-integer/description/">7. 整数反转 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode08.字符串转换整数 (atoi)</title>
+    <url>/2023/02/28/leetcode08/</url>
+    <content><![CDATA[<p>请你来实现一个 <code>myAtoi(string s)</code> 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C&#x2F;C++ 中的 <code>atoi</code> 函数）。</p>
+<p>函数 <code>myAtoi(string s)</code> 的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。</li>
+<li>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 <code>0</code> 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 <code>[−231, 231 − 1]</code> ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 <code>−231</code> 的整数应该被固定为 <code>−231</code> ，大于 <code>231 − 1</code> 的整数应该被固定为 <code>231 − 1</code> 。</li>
+<li>返回整数作为最终结果。</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ul>
+<li>本题中的空白字符只包括空格字符 <code>&#39; &#39;</code> 。</li>
+<li>除前导空格或数字后的其余字符串外，<strong>请勿忽略</strong> 任何其他字符。</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;42&quot;</span><br><span class="line">输出：42</span><br><span class="line">解释：加粗的字符串为已经读入的字符，插入符号是当前读取的字符。</span><br><span class="line">第 1 步：&quot;42&quot;（当前没有读入字符，因为没有前导空格）</span><br><span class="line">         ^</span><br><span class="line">第 2 步：&quot;42&quot;（当前没有读入字符，因为这里不存在 &#x27;-&#x27; 或者 &#x27;+&#x27;）</span><br><span class="line">         ^</span><br><span class="line">第 3 步：&quot;42&quot;（读入 &quot;42&quot;）</span><br><span class="line">           ^</span><br><span class="line">解析得到整数 42 。</span><br><span class="line">由于 &quot;42&quot; 在范围 [-231, 231 - 1] 内，最终结果为 42 。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">返回值为int，需要提前判断</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">myAtoi</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] == <span class="string">&#x27; &#x27;</span>) k ++; <span class="comment">// 略过前导空格</span></span><br><span class="line">        <span class="keyword">if</span> (k == s.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ori = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (s[k] ==  <span class="string">&#x27;-&#x27;</span>) ori = <span class="number">-1</span>,  k ++; <span class="comment">// 判断正负</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s[k] == <span class="string">&#x27;+&#x27;</span>) k ++;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[k] &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">            <span class="type">int</span> x = s[k] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (ori &gt; <span class="number">0</span> &amp;&amp; res &gt; (INT_MAX - x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MAX;</span><br><span class="line">            <span class="keyword">if</span> (ori &lt; <span class="number">0</span> &amp;&amp; -res &lt; (INT_MIN + x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MIN;</span><br><span class="line">            <span class="keyword">if</span> (-res * <span class="number">10</span> - x == INT_MIN) <span class="keyword">return</span> INT_MIN; <span class="comment">// 防止正溢出</span></span><br><span class="line">            res = res * <span class="number">10</span> + x;</span><br><span class="line">            k ++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ori * res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/string-to-integer-atoi/description/">8. 字符串转换整数 (atoi) - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode09.回文数</title>
+    <url>/2023/02/28/leetcode09/</url>
+    <content><![CDATA[<ul>
+<li><p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<ul>
+<li>例如，<code>121</code> 是回文，而 <code>123</code> 不是。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：x = 121</span><br><span class="line">输出：true</span><br><span class="line"></span><br><span class="line">输入：x = -121</span><br><span class="line">输出：false</span><br><span class="line">解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">无</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<blockquote>
+<ul>
+<li>字符串</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        string s = <span class="built_in">to_string</span>(x);</span><br><span class="line">        string t = s;</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> s == t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>数学</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> t = <span class="number">0</span>, num = x;</span><br><span class="line">        <span class="keyword">while</span> (x) &#123;</span><br><span class="line">            t = t * <span class="number">10</span> +  x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> num == t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -242,6 +414,51 @@
       <tags>
         <tag>动态规划</tag>
         <tag>记忆化搜索</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode1238.循环码排列</title>
+    <url>/2023/02/23/leetcode1238/</url>
+    <content><![CDATA[<p>给你两个整数 <code>n</code> 和 <code>start</code>。你的任务是返回任意 <code>(0,1,2,,...,2^n-1)</code> 的排列 <code>p</code>，并且满足：</p>
+<ul>
+<li><code>p[0] = start</code></li>
+<li><code>p[i]</code> 和 <code>p[i+1]</code> 的二进制表示形式只有一位不同</li>
+<li><code>p[0]</code> 和 <code>p[2^n -1]</code> 的二进制表示形式也只有一位不同</li>
+</ul>
+<span id="more"></span>
+
+
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 2, start = 3</span><br><span class="line">输出：[3,2,0,1]</span><br><span class="line">解释：这个排列的二进制表示是 (11,10,00,01)</span><br><span class="line">     所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格雷码：(0,1,2,,...,2^n-1) 排列为一圈，相邻两项之间只有一位不同</span><br><span class="line">求格雷码：</span><br><span class="line">	1.对称</span><br><span class="line">	2.高位补1，低位补0</span><br><span class="line">题目要求从start开始，因此最后需要和start异或</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">circularPermutation</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; a&#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="comment">// 求格雷码</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; b = a;</span><br><span class="line">            <span class="comment">// 对称</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = a.<span class="built_in">size</span>() - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j --) </span><br><span class="line">                b.<span class="built_in">push_back</span>(a[j] + (<span class="number">1</span> &lt;&lt; i)); <span class="comment">// 高位补1</span></span><br><span class="line">            a = b;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">// 保证从start开始</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>&amp; x : a) x ^= start;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h4></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">circularPermutation</span><span class="params">(n <span class="type">int</span>, start <span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">    a := []<span class="type">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>;i &lt; n;i ++&#123;</span><br><span class="line">        <span class="keyword">var</span> b = a</span><br><span class="line">        <span class="keyword">for</span> j := <span class="built_in">len</span>(a) - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j -- &#123;</span><br><span class="line">            b = <span class="built_in">append</span>(b, a[j] + (<span class="number">1</span> &lt;&lt; i))</span><br><span class="line">        &#125;</span><br><span class="line">        a = b</span><br><span class="line">    &#125;</span><br><span class="line">    i := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, x := <span class="keyword">range</span> a &#123;</span><br><span class="line">        x ^= start</span><br><span class="line">        a[i] = x</span><br><span class="line">        i ++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/circular-permutation-in-binary-representation/description/">1238. 循环码排列 - 力扣（Leetcode）</a>)</p>
+<p>[相似题目](<a href="https://leetcode.cn/problems/gray-code/description/">89. 格雷编码 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>格雷码</tag>
+        <tag>二进制</tag>
+        <tag>位运算</tag>
       </tags>
   </entry>
   <entry>
@@ -370,39 +587,50 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode2357.使数组中所有元素都等于零</title>
-    <url>/2023/02/24/leetcode2357/</url>
-    <content><![CDATA[<p>给你一个非负整数数组 <code>nums</code> 。在一步操作中，你必须：</p>
-<ul>
-<li>选出一个正整数 <code>x</code> ，<code>x</code> 需要小于或等于 <code>nums</code> 中 <strong>最小</strong> 的 <strong>非零</strong> 元素。</li>
-<li><code>nums</code> 中的每个正整数都减去 <code>x</code>。</li>
-</ul>
-<p>返回使 <code>nums</code> 中所有元素都等于 <code>0</code> 需要的 <strong>最少</strong> 操作数。</p>
+    <title>leetcode2363.合并相似的物品</title>
+    <url>/2023/02/28/leetcode2363/</url>
+    <content><![CDATA[<p>给你两个二维整数数组 items1 和 items2 ，表示两个物品集合。每个数组 items 有以下特质：</p>
+<p>items[i] &#x3D; [valuei, weighti] 其中 valuei 表示第 i 件物品的 价值 ，weighti 表示第 i 件物品的 重量 。<br>items 中每件物品的价值都是 唯一的 。<br>请你返回一个二维数组 ret，其中 ret[i] &#x3D; [valuei, weighti]， weighti 是所有价值为 valuei 物品的 重量之和 。</p>
+<p>注意：ret 应该按价值 升序 排序后返回。</p>
 <span id="more"></span>
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,5,0,3,5]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">第一步操作：选出 x = 1 ，之后 nums = [0,4,0,2,4] 。</span><br><span class="line">第二步操作：选出 x = 2 ，之后 nums = [0,2,0,0,2] 。</span><br><span class="line">第三步操作：选出 x = 2 ，之后 nums = [0,0,0,0,0] 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：items1 = [[1,1],[4,5],[3,8]], items2 = [[3,1],[1,5]]</span><br><span class="line">输出：[[1,6],[3,9],[4,5]]</span><br><span class="line">解释：</span><br><span class="line">value = 1 的物品在 items1 中 weight = 1 ，在 items2 中 weight = 5 ，总重量为 1 + 5 = 6 。</span><br><span class="line">value = 3 的物品再 items1 中 weight = 8 ，在 items2 中 weight = 1 ，总重量为 8 + 1 = 9 。</span><br><span class="line">value = 4 的物品在 items1 中 weight = 5 ，总重量为 5 。</span><br><span class="line">所以，我们返回 [[1,6],[3,9],[4,5]] 。</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">简单思维题，只需要考虑不重复的非0元素的个数</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">简单题无</span><br></pre></td></tr></table></figure>
+
+
 
 <hr>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
 <li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumOperations</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; seen;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>&amp; num : nums)</span><br><span class="line">            <span class="keyword">if</span> (num)</span><br><span class="line">                seen.<span class="built_in">insert</span>(num);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> seen.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>归并</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">mergeSimilarItems</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; items1, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; items2) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(items1.<span class="built_in">begin</span>(), items1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(items2.<span class="built_in">begin</span>(), items2.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; items1.<span class="built_in">size</span>() || j &lt; items2.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == items2.<span class="built_in">size</span>()) &#123; </span><br><span class="line">                ans.<span class="built_in">push_back</span>(items1[i]);</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == items1.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(items2[j]);</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (items1[i][<span class="number">0</span>] &lt; items2[j][<span class="number">0</span>]) &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(items1[i]);</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (items1[i][<span class="number">0</span>] &gt; items2[j][<span class="number">0</span>]) &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(items2[j]);</span><br><span class="line">                    j++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(&#123;items1[i][<span class="number">0</span>], items1[i][<span class="number">1</span>] + items2[j][<span class="number">1</span>]&#125;);</span><br><span class="line">                    i++;</span><br><span class="line">                    j++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>[原题链接](<a href="https://leetcode.cn/problems/make-array-zero-by-subtracting-equal-amounts/description/">2357. 使数组中所有元素都等于零 - 力扣（Leetcode）</a>)</p>
+<blockquote>
+<ul>
+<li>哈希表</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">mergeSimilarItems</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; items1, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; items2) &#123;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; cnt; <span class="comment">// map自带排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; v : items1) cnt[v[<span class="number">0</span>]] += v[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; v : items2) cnt[v[<span class="number">0</span>]] += v[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [k, v] : cnt) res.<span class="built_in">push_back</span>(&#123;k, v&#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/merge-similar-items/description/">2363. 合并相似的物品 - 力扣（Leetcode）</a>)</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
         <tag>哈希表</tag>
-        <tag>思维题</tag>
+        <tag>归并</tag>
       </tags>
   </entry>
   <entry>
@@ -451,48 +679,71 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode1238.循环码排列</title>
-    <url>/2023/02/23/leetcode1238/</url>
-    <content><![CDATA[<p>给你两个整数 <code>n</code> 和 <code>start</code>。你的任务是返回任意 <code>(0,1,2,,...,2^n-1)</code> 的排列 <code>p</code>，并且满足：</p>
+    <title>leetcode2357.使数组中所有元素都等于零</title>
+    <url>/2023/02/24/leetcode2357/</url>
+    <content><![CDATA[<p>给你一个非负整数数组 <code>nums</code> 。在一步操作中，你必须：</p>
 <ul>
-<li><code>p[0] = start</code></li>
-<li><code>p[i]</code> 和 <code>p[i+1]</code> 的二进制表示形式只有一位不同</li>
-<li><code>p[0]</code> 和 <code>p[2^n -1]</code> 的二进制表示形式也只有一位不同</li>
+<li>选出一个正整数 <code>x</code> ，<code>x</code> 需要小于或等于 <code>nums</code> 中 <strong>最小</strong> 的 <strong>非零</strong> 元素。</li>
+<li><code>nums</code> 中的每个正整数都减去 <code>x</code>。</li>
 </ul>
+<p>返回使 <code>nums</code> 中所有元素都等于 <code>0</code> 需要的 <strong>最少</strong> 操作数。</p>
 <span id="more"></span>
-
-
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 2, start = 3</span><br><span class="line">输出：[3,2,0,1]</span><br><span class="line">解释：这个排列的二进制表示是 (11,10,00,01)</span><br><span class="line">     所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,5,0,3,5]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">第一步操作：选出 x = 1 ，之后 nums = [0,4,0,2,4] 。</span><br><span class="line">第二步操作：选出 x = 2 ，之后 nums = [0,2,0,0,2] 。</span><br><span class="line">第三步操作：选出 x = 2 ，之后 nums = [0,0,0,0,0] 。</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格雷码：(0,1,2,,...,2^n-1) 排列为一圈，相邻两项之间只有一位不同</span><br><span class="line">求格雷码：</span><br><span class="line">	1.对称</span><br><span class="line">	2.高位补1，低位补0</span><br><span class="line">题目要求从start开始，因此最后需要和start异或</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">简单思维题，只需要考虑不重复的非0元素的个数</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
 <li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">circularPermutation</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> start)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; a&#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="comment">// 求格雷码</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; b = a;</span><br><span class="line">            <span class="comment">// 对称</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = a.<span class="built_in">size</span>() - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j --) </span><br><span class="line">                b.<span class="built_in">push_back</span>(a[j] + (<span class="number">1</span> &lt;&lt; i)); <span class="comment">// 高位补1</span></span><br><span class="line">            a = b;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">// 保证从start开始</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>&amp; x : a) x ^= start;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumOperations</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; seen;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>&amp; num : nums)</span><br><span class="line">            <span class="keyword">if</span> (num)</span><br><span class="line">                seen.<span class="built_in">insert</span>(num);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> seen.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><h4 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h4></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">circularPermutation</span><span class="params">(n <span class="type">int</span>, start <span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">    a := []<span class="type">int</span>&#123;<span class="number">0</span>, <span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>;i &lt; n;i ++&#123;</span><br><span class="line">        <span class="keyword">var</span> b = a</span><br><span class="line">        <span class="keyword">for</span> j := <span class="built_in">len</span>(a) - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j -- &#123;</span><br><span class="line">            b = <span class="built_in">append</span>(b, a[j] + (<span class="number">1</span> &lt;&lt; i))</span><br><span class="line">        &#125;</span><br><span class="line">        a = b</span><br><span class="line">    &#125;</span><br><span class="line">    i := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, x := <span class="keyword">range</span> a &#123;</span><br><span class="line">        x ^= start</span><br><span class="line">        a[i] = x</span><br><span class="line">        i ++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/circular-permutation-in-binary-representation/description/">1238. 循环码排列 - 力扣（Leetcode）</a>)</p>
-<p>[相似题目](<a href="https://leetcode.cn/problems/gray-code/description/">89. 格雷编码 - 力扣（Leetcode）</a>)</p>
+<p>[原题链接](<a href="https://leetcode.cn/problems/make-array-zero-by-subtracting-equal-amounts/description/">2357. 使数组中所有元素都等于零 - 力扣（Leetcode）</a>)</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>格雷码</tag>
-        <tag>二进制</tag>
-        <tag>位运算</tag>
+        <tag>哈希表</tag>
+        <tag>思维题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode85.最大矩形</title>
+    <url>/2023/02/24/leetcode85/</url>
+    <content><![CDATA[<p>给定一个仅包含 <code>0</code> 和 <code>1</code> 、大小为 <code>rows x cols</code> 的二维二进制矩阵，找出只包含 <code>1</code> 的最大矩形，并返回其面积。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]</span><br><span class="line">输出：6</span><br><span class="line">解释：最大矩形如上图所示。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、枚举矩形的边界，从边界出发统计连续1的个数，之后转化为求柱状图中的最大矩形</span><br><span class="line">2、单调栈求最大面积</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longHeight</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; h)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = h.<span class="built_in">size</span>();</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">left</span><span class="params">(n)</span>, <span class="title">right</span><span class="params">(n)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; h[stk.<span class="built_in">top</span>()] &gt;= h[i]) stk.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (stk.<span class="built_in">empty</span>()) left[i] = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> left[i] = stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stk = <span class="built_in">stack</span>&lt;<span class="type">int</span>&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = n - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j --) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; h[stk.<span class="built_in">top</span>()] &gt;= h[j]) stk.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (stk.<span class="built_in">empty</span>()) right[j] = n;</span><br><span class="line">            <span class="keyword">else</span> right[j] = stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">push</span>(j);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">            res = <span class="built_in">max</span>(res, h[i] * (right[i] - left[i] - <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maximalRectangle</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix.<span class="built_in">empty</span>() || matrix[<span class="number">0</span>].<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = matrix.<span class="built_in">size</span>(), m = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i) f[i][j] = f[i - <span class="number">1</span>][j] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span> f[i][j] = <span class="number">1</span>; <span class="comment">// 边界0</span></span><br><span class="line">                &#125;        </span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            res = <span class="built_in">max</span>(res, <span class="built_in">longHeight</span>(f[i]));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/maximal-rectangle/">85. 最大矩形 - 力扣（Leetcode）</a>)</p>
+<p>[相似题目](<a href="https://leetcode.cn/problems/largest-rectangle-in-histogram/description/">84. 柱状图中最大的矩形 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+        <tag>单调栈</tag>
       </tags>
   </entry>
   <entry>
@@ -537,38 +788,6 @@
       <tags>
         <tag>DFS</tag>
         <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode85.最大矩形</title>
-    <url>/2023/02/24/leetcode85/</url>
-    <content><![CDATA[<p>给定一个仅包含 <code>0</code> 和 <code>1</code> 、大小为 <code>rows x cols</code> 的二维二进制矩阵，找出只包含 <code>1</code> 的最大矩形，并返回其面积。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]</span><br><span class="line">输出：6</span><br><span class="line">解释：最大矩形如上图所示。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、枚举矩形的边界，从边界出发统计连续1的个数，之后转化为求柱状图中的最大矩形</span><br><span class="line">2、单调栈求最大面积</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longHeight</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; h)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = h.<span class="built_in">size</span>();</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">left</span><span class="params">(n)</span>, <span class="title">right</span><span class="params">(n)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; h[stk.<span class="built_in">top</span>()] &gt;= h[i]) stk.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (stk.<span class="built_in">empty</span>()) left[i] = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> left[i] = stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stk = <span class="built_in">stack</span>&lt;<span class="type">int</span>&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = n - <span class="number">1</span>;j &gt;= <span class="number">0</span>;j --) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; h[stk.<span class="built_in">top</span>()] &gt;= h[j]) stk.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (stk.<span class="built_in">empty</span>()) right[j] = n;</span><br><span class="line">            <span class="keyword">else</span> right[j] = stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">push</span>(j);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">            res = <span class="built_in">max</span>(res, h[i] * (right[i] - left[i] - <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maximalRectangle</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix.<span class="built_in">empty</span>() || matrix[<span class="number">0</span>].<span class="built_in">empty</span>()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = matrix.<span class="built_in">size</span>(), m = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(m));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i) f[i][j] = f[i - <span class="number">1</span>][j] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">else</span> f[i][j] = <span class="number">1</span>; <span class="comment">// 边界0</span></span><br><span class="line">                &#125;        </span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            res = <span class="built_in">max</span>(res, <span class="built_in">longHeight</span>(f[i]));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/maximal-rectangle/">85. 最大矩形 - 力扣（Leetcode）</a>)</p>
-<p>[相似题目](<a href="https://leetcode.cn/problems/largest-rectangle-in-histogram/description/">84. 柱状图中最大的矩形 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>模拟</tag>
-        <tag>单调栈</tag>
       </tags>
   </entry>
 </search>
