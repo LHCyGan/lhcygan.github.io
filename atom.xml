@@ -174,9 +174,9 @@
     <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
     
     
-    <category term="归并" scheme="http://example.com/tags/%E5%BD%92%E5%B9%B6/"/>
-    
     <category term="哈希表" scheme="http://example.com/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+    <category term="归并" scheme="http://example.com/tags/%E5%BD%92%E5%B9%B6/"/>
     
   </entry>
   
