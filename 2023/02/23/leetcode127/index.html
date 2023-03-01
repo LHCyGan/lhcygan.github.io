@@ -436,12 +436,12 @@
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：beginWord = <span class="string">&quot;hit&quot;</span>, endWord = <span class="string">&quot;cog&quot;</span>, wordList = [<span class="string">&quot;hot&quot;</span>,<span class="string">&quot;dot&quot;</span>,<span class="string">&quot;dog&quot;</span>,<span class="string">&quot;lot&quot;</span>,<span class="string">&quot;log&quot;</span>,<span class="string">&quot;cog&quot;</span>]</span><br><span class="line">输出：<span class="number">5</span></span><br><span class="line">解释：一个最短转换序列是 <span class="string">&quot;hit&quot;</span> -&gt; <span class="string">&quot;hot&quot;</span> -&gt; <span class="string">&quot;dot&quot;</span> -&gt; <span class="string">&quot;dog&quot;</span> -&gt; <span class="string">&quot;cog&quot;</span>, 返回它的长度 <span class="number">5</span>。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：beginWord = &quot;hit&quot;, endWord = &quot;cog&quot;, wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]</span><br><span class="line">输出：5</span><br><span class="line">解释：一个最短转换序列是 &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;, 返回它的长度 5。</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于题目要求没对相邻单词之间仅有单个字母不同，即从当前状态到下一个状态代价为1，同时题目要求最短转化路近，因此问题转化为BFS求最短路问题</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于题目要求没对相邻单词之间仅有单个字母不同，即从当前状态到下一个状态代价为1，同时题目要求最短转化路近，因此问题转化为BFS求最短路问题</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>

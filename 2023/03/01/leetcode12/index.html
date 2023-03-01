@@ -425,7 +425,7 @@
 
       
         <p>罗马数字包含以下七种字符： <code>I</code>， <code>V</code>， <code>X</code>， <code>L</code>，<code>C</code>，<code>D</code> 和 <code>M</code>。</p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符          数值</span><br><span class="line"><span class="built_in">I</span>             <span class="number">1</span></span><br><span class="line"><span class="variable">V</span>             <span class="number">5</span></span><br><span class="line"><span class="variable">X</span>             <span class="number">10</span></span><br><span class="line"><span class="variable">L</span>             <span class="number">50</span></span><br><span class="line"><span class="built_in">C</span>             <span class="number">100</span></span><br><span class="line"><span class="built_in">D</span>             <span class="number">500</span></span><br><span class="line"><span class="variable">M</span>             <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字符          数值</span><br><span class="line">I             1</span><br><span class="line">V             5</span><br><span class="line">X             10</span><br><span class="line">L             50</span><br><span class="line">C             100</span><br><span class="line">D             500</span><br><span class="line">M             1000</span><br></pre></td></tr></table></figure>
 
 <p>例如， 罗马数字 2 写做 <code>II</code> ，即为两个并列的 1。12 写做 <code>XII</code> ，即为 <code>X</code> + <code>II</code> 。 27 写做 <code>XXVII</code>, 即为 <code>XX</code> + <code>V</code> + <code>II</code> 。</p>
 <p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 <code>IIII</code>，而是 <code>IV</code>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 <code>IX</code>。这个特殊的规则只适用于以下六种情况：</p>
@@ -439,12 +439,12 @@
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="built_in">num</span> = <span class="number">3</span></span><br><span class="line">输出: <span class="string">&quot;III&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: num = 3</span><br><span class="line">输出: &quot;III&quot;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、使用哈希表存储转换规则，按照数值降序排序</span><br><span class="line">2、从大到小枚举转化</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、使用哈希表存储转换规则，按照数值降序排序</span><br><span class="line">2、从大到小枚举转化</span><br></pre></td></tr></table></figure>
 
 
 

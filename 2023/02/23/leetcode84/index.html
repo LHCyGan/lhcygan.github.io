@@ -429,12 +429,12 @@
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = <span class="string">[2,1,5,6,2,3]</span></span><br><span class="line">输出：<span class="number">10</span></span><br><span class="line">解释：最大的矩形为图中红色区域，面积为 <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：heights = [2,1,5,6,2,3]</span><br><span class="line">输出：10</span><br><span class="line">解释：最大的矩形为图中红色区域，面积为 10</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要求最大矩形的面积，考虑当前位置<span class="selector-tag">i</span>所构成的最大矩形，只需要考虑前后最接近它且高度小于它的位置，显然，只需要维护两个单调栈即可</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要求最大矩形的面积，考虑当前位置i所构成的最大矩形，只需要考虑前后最接近它且高度小于它的位置，显然，只需要维护两个单调栈即可</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>

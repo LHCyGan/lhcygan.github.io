@@ -428,12 +428,12 @@
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="string">&quot;1&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;0&quot;</span>],[<span class="string">&quot;1&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;1&quot;</span>],[<span class="string">&quot;1&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;1&quot;</span>],[<span class="string">&quot;1&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;0&quot;</span>]]</span><br><span class="line">输出：<span class="number">6</span></span><br><span class="line">解释：最大矩形如上图所示。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],[&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]]</span><br><span class="line">输出：6</span><br><span class="line">解释：最大矩形如上图所示。</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>、枚举矩形的边界，从边界出发统计连续<span class="number">1</span>的个数，之后转化为求柱状图中的最大矩形</span><br><span class="line"><span class="attribute">2</span>、单调栈求最大面积</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、枚举矩形的边界，从边界出发统计连续1的个数，之后转化为求柱状图中的最大矩形</span><br><span class="line">2、单调栈求最大面积</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
