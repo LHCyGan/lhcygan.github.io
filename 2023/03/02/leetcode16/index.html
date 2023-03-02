@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="模拟," />
+  <meta name="keywords" content="双指针," />
 
 
 
@@ -88,17 +88,17 @@
 
 
 
-<meta name="description" content="给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。 请你将两个数相加，并以相同形式返回一个表示和的链表。 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。">
+<meta name="description" content="给你一个长度为 n 的整数数组 nums 和 一个目标值 target。请你从 nums 中选出三个整数，使它们的和与 target 最接近。 返回这三个数的和。 假定每组输入只存在恰好一个解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode02.两数相加">
-<meta property="og:url" content="http://example.com/2023/02/27/leetcode02/index.html">
+<meta property="og:title" content="leetcode16.最接近的三数之和">
+<meta property="og:url" content="http://example.com/2023/03/02/leetcode16/index.html">
 <meta property="og:site_name" content="一只研究僧er">
-<meta property="og:description" content="给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。 请你将两个数相加，并以相同形式返回一个表示和的链表。 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。">
+<meta property="og:description" content="给你一个长度为 n 的整数数组 nums 和 一个目标值 target。请你从 nums 中选出三个整数，使它们的和与 target 最接近。 返回这三个数的和。 假定每组输入只存在恰好一个解。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-27T07:38:36.000Z">
-<meta property="article:modified_time" content="2023-02-27T08:20:34.000Z">
+<meta property="article:published_time" content="2023-03-02T09:12:52.000Z">
+<meta property="article:modified_time" content="2023-03-02T09:16:09.782Z">
 <meta property="article:author" content="刘恒">
-<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="双指针">
 <meta name="twitter:card" content="summary">
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2023/02/27/leetcode02/"/>
+  <link rel="canonical" href="http://example.com/2023/03/02/leetcode16/"/>
 
 
 
 
 
-  <title>leetcode02.两数相加 | 一只研究僧er</title>
+  <title>leetcode16.最接近的三数之和 | 一只研究僧er</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/27/leetcode02/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/02/leetcode16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode02.两数相加</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode16.最接近的三数之和</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-02-27T15:38:36+08:00">
-                2023-02-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-02T17:12:52+08:00">
+                2023-03-02
               </time>
             
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  259
+                  303
                 </span>
               
 
@@ -422,19 +422,19 @@
       
 
       
-        <p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
-<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+        <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> 和 一个目标值 <code>target</code>。请你从 <code>nums</code> 中选出三个整数，使它们的和与 <code>target</code> 最接近。</p>
+<p>返回这三个数的和。</p>
+<p>假定每组输入只存在恰好一个解。</p>
 <span id="more"></span>
 
 <hr>
 <p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 = [2,4,3], l2 = [5,6,4]</span><br><span class="line">输出：[7,0,8]</span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-1,2,1,-4], target = 1</span><br><span class="line">输出：2</span><br><span class="line">解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。</span><br></pre></td></tr></table></figure>
 
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单模拟题，创建一个虚头节点dummy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、枚举每个数，先确定nums[i]，在排序后的情况下，通过双指针l，r分别从左边l = i + 1和右边n - 1</span><br><span class="line">往中间靠拢，找到nums[i] + nums[l] + nums[r] 接近target的所有符合条件的搭配</span><br></pre></td></tr></table></figure>
 
 
 
@@ -442,9 +442,9 @@
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
 <li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), cur = dummy;</span><br><span class="line">        <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l1 || l2 || t) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1) t += l1-&gt;val, l1 = l1-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (l2) t += l2-&gt;val, l2 = l2-&gt;next;</span><br><span class="line">            cur-&gt;next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(t % <span class="number">10</span>);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">            t /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">threeSumClosest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; res = &#123;INT_MAX, INT_MAX&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>();i ++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>, k = nums.<span class="built_in">size</span>() - <span class="number">1</span>;j &lt; k;j ++) &#123;</span><br><span class="line">                <span class="keyword">while</span> (j &lt; k - <span class="number">1</span> &amp;&amp;  nums[k - <span class="number">1</span>] + nums[i] + nums[j] &gt;= target) k --;</span><br><span class="line">                <span class="type">int</span> s = nums[k] + nums[i] + nums[j];</span><br><span class="line">                res = <span class="built_in">min</span>(<span class="built_in">make_pair</span>(<span class="built_in">abs</span>(s - target), s), res); <span class="comment">// 大于target时</span></span><br><span class="line">                <span class="keyword">if</span> (k - <span class="number">1</span> &gt; j) &#123; <span class="comment">// 小于target时</span></span><br><span class="line">                    s = nums[k - <span class="number">1</span>] + nums[i] + nums[j];</span><br><span class="line">                    res = <span class="built_in">min</span>(<span class="built_in">make_pair</span>(<span class="built_in">abs</span>(s - target), s), res);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res.second;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>[原题链接](<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/add-two-numbers/description/">2. 两数相加 - 力扣（Leetcode）</a>)</p>
+<p>[原题链接](<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum-closest/description/">16. 最接近的三数之和 - 力扣（Leetcode）</a>)</p>
 
       
     </div>
@@ -462,7 +462,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
+            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag"># 双指针</a>
           
         </div>
       
@@ -475,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2023/02/27/leetcode01/" rel="next" title="leetcode01.两数之和">
-                <i class="fa fa-chevron-left"></i> leetcode01.两数之和
+              <a href="/2023/03/01/leetcode15/" rel="next" title="leetcode15.三数之和">
+                <i class="fa fa-chevron-left"></i> leetcode15.三数之和
               </a>
             
           </div>
@@ -485,8 +485,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2023/02/27/leetcode03/" rel="prev" title="leetcode03.无重复字符的最长子串">
-                leetcode03.无重复字符的最长子串 <i class="fa fa-chevron-right"></i>
+              <a href="/2023/03/02/leetcode17/" rel="prev" title="leetcode17.电话号码的字母组合">
+                leetcode17.电话号码的字母组合 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
