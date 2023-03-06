@@ -36,39 +36,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode03.无重复字符的最长子串</title>
-    <url>/2023/02/27/leetcode03/</url>
-    <content><![CDATA[<p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">滑动窗口经典问题，使用哈希表维护一个窗口，当右指针对应字符大于1时，收缩窗口</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; cnt;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;i &lt; s.<span class="built_in">size</span>();i ++) &#123;</span><br><span class="line">            cnt[s[i]] ++;</span><br><span class="line">            <span class="keyword">while</span> (cnt[s[i]] &gt; <span class="number">1</span>) -- cnt[s[j ++]];</span><br><span class="line">            res = <span class="built_in">max</span>(i - j + <span class="number">1</span>, res);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/">3. 无重复字符的最长子串 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-        <tag>滑动窗口</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode02.两数相加</title>
     <url>/2023/02/27/leetcode02/</url>
     <content><![CDATA[<p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
@@ -169,6 +136,39 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode03.无重复字符的最长子串</title>
+    <url>/2023/02/27/leetcode03/</url>
+    <content><![CDATA[<p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">滑动窗口经典问题，使用哈希表维护一个窗口，当右指针对应字符大于1时，收缩窗口</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; cnt;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;i &lt; s.<span class="built_in">size</span>();i ++) &#123;</span><br><span class="line">            cnt[s[i]] ++;</span><br><span class="line">            <span class="keyword">while</span> (cnt[s[i]] &gt; <span class="number">1</span>) -- cnt[s[j ++]];</span><br><span class="line">            res = <span class="built_in">max</span>(i - j + <span class="number">1</span>, res);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/">3. 无重复字符的最长子串 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>滑动窗口</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode07.整数反转</title>
     <url>/2023/02/28/leetcode07/</url>
     <content><![CDATA[<p>给你一个 32 位的有符号整数 <code>x</code> ，返回将 <code>x</code> 中的数字部分反转后的结果。</p>
@@ -201,42 +201,6 @@
       <tags>
         <tag>模拟</tag>
         <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode06.N字形变换</title>
-    <url>/2023/02/28/leetcode06/</url>
-    <content><![CDATA[<p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
-<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">按行枚举，flag控制方向</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (numRows == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">lines</span><span class="params">(numRows)</span></span>;</span><br><span class="line">        <span class="type">int</span> flag = <span class="number">1</span>, i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            lines[i] += c;</span><br><span class="line">            i += flag;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">-1</span> || i == numRows) &#123;</span><br><span class="line">                flag = -flag;</span><br><span class="line">                i += <span class="number">2</span> * flag;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> string&amp; line: lines) &#123;</span><br><span class="line">            res += line;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/zigzag-conversion/">6. N 字形变换 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>模拟</tag>
-        <tag>找规律</tag>
       </tags>
   </entry>
   <entry>
@@ -341,6 +305,42 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode06.N字形变换</title>
+    <url>/2023/02/28/leetcode06/</url>
+    <content><![CDATA[<p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
+<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">按行枚举，flag控制方向</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (numRows == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">lines</span><span class="params">(numRows)</span></span>;</span><br><span class="line">        <span class="type">int</span> flag = <span class="number">1</span>, i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            lines[i] += c;</span><br><span class="line">            i += flag;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">-1</span> || i == numRows) &#123;</span><br><span class="line">                flag = -flag;</span><br><span class="line">                i += <span class="number">2</span> * flag;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> string&amp; line: lines) &#123;</span><br><span class="line">            res += line;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/zigzag-conversion/">6. N 字形变换 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+        <tag>找规律</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode10.正则表达式匹配</title>
     <url>/2023/02/24/leetcode10/</url>
     <content><![CDATA[<p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持 <code>&#39;.&#39;</code> 和 <code>&#39;*&#39;</code> 的正则表达式匹配。</p>
@@ -410,48 +410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode1140.石子游戏II</title>
-    <url>/2023/02/22/leetcode1140/</url>
-    <content><![CDATA[<p>爱丽丝和鲍勃继续他们的石子游戏。许多堆石子 <strong>排成一行</strong>，每堆都有正整数颗石子 <code>piles[i]</code>。游戏以谁手中的石子最多来决出胜负。</p>
-<p>爱丽丝和鲍勃轮流进行，爱丽丝先开始。最初，<code>M = 1</code>。</p>
-<p>在每个玩家的回合中，该玩家可以拿走剩下的 <strong>前</strong> <code>X</code> 堆的所有石子，其中 <code>1 &lt;= X &lt;= 2M</code>。然后，令 <code>M = max(M, X)</code>。</p>
-<p>游戏一直持续到所有石子都被拿走。</p>
-<p>假设爱丽丝和鲍勃都发挥出最佳水平，返回爱丽丝可以得到的最大数量的石头。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：piles = [2,7,9,4,4]</span><br><span class="line">输出：10</span><br><span class="line">解释：如果一开始Alice取了一堆，Bob取了两堆，然后Alice再取两堆。爱丽丝可以得到2 + 4 + 4 = 10堆。如果Alice一开始拿走了两堆，那么Bob可以拿走剩下的三堆。在这种情况下，Alice得到2 + 7 = 9堆。返回10，因为它更大。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">状态表示：</span><br><span class="line">	f[i, j]表示当石子为i~n，M=j时Alice可以得到的最大数量</span><br><span class="line">状态转移：</span><br><span class="line">	f[i][j] = max(f[i][j], s[n] - s[i - 1] - f[i + k][max(k, j)])</span><br><span class="line">	f[i + k][max(k, j)] 表示Bob可以获得的石子， s[n] - s[i - 1] - f[i + k][max(k, j)]表示Alice可以获得的石子</span><br><span class="line">	s[n] - s[i - 1]前缀和优化，表示i~n的石子数量</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">stoneGameII</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; piles)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = piles.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n + <span class="number">2</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">s</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">            s[i] = s[i - <span class="number">1</span>] + piles[i - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n;i;i --)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>;j &lt;= n;j ++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>;i + k - <span class="number">1</span> &lt;= n &amp;&amp; k &lt;= <span class="number">2</span> * j;k ++)</span><br><span class="line">                    f[i][j] = <span class="built_in">max</span>(f[i][j], s[n] - s[i - <span class="number">1</span>] - f[i + k][<span class="built_in">max</span>(k, j)]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h4 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h4></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Max</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> x &gt; y &#123;</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">stoneGameII</span><span class="params">(piles []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> n <span class="type">int</span> = <span class="built_in">len</span>(piles)</span><br><span class="line">    <span class="keyword">var</span> f  [<span class="number">105</span>][<span class="number">105</span>]<span class="type">int</span></span><br><span class="line">    <span class="keyword">var</span> s [<span class="number">105</span>]<span class="type">int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>;i &lt;= n;i += <span class="number">1</span> &#123;</span><br><span class="line">        s[i] = piles[i - <span class="number">1</span>] + s[i - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := n;i &gt; <span class="number">0</span>;i -- &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>;j &lt;= n;j ++ &#123;</span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">1</span>;i + k - <span class="number">1</span> &lt;= n &amp;&amp; k &lt;= <span class="number">2</span> * j;k ++ &#123;</span><br><span class="line">                f[i][j] = Max(f[i][j], s[n] - s[i - <span class="number">1</span>] - f[i + k][Max(k, j)]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> f[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/stone-game-ii/description/">1140. 石子游戏 II - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>记忆化搜索</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode12.整数转罗马数字</title>
     <url>/2023/03/01/leetcode12/</url>
     <content><![CDATA[<p>罗马数字包含以下七种字符： <code>I</code>， <code>V</code>， <code>X</code>， <code>L</code>，<code>C</code>，<code>D</code> 和 <code>M</code>。</p>
@@ -494,6 +452,48 @@
         <tag>模拟</tag>
         <tag>哈希表</tag>
         <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode1140.石子游戏II</title>
+    <url>/2023/02/22/leetcode1140/</url>
+    <content><![CDATA[<p>爱丽丝和鲍勃继续他们的石子游戏。许多堆石子 <strong>排成一行</strong>，每堆都有正整数颗石子 <code>piles[i]</code>。游戏以谁手中的石子最多来决出胜负。</p>
+<p>爱丽丝和鲍勃轮流进行，爱丽丝先开始。最初，<code>M = 1</code>。</p>
+<p>在每个玩家的回合中，该玩家可以拿走剩下的 <strong>前</strong> <code>X</code> 堆的所有石子，其中 <code>1 &lt;= X &lt;= 2M</code>。然后，令 <code>M = max(M, X)</code>。</p>
+<p>游戏一直持续到所有石子都被拿走。</p>
+<p>假设爱丽丝和鲍勃都发挥出最佳水平，返回爱丽丝可以得到的最大数量的石头。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：piles = [2,7,9,4,4]</span><br><span class="line">输出：10</span><br><span class="line">解释：如果一开始Alice取了一堆，Bob取了两堆，然后Alice再取两堆。爱丽丝可以得到2 + 4 + 4 = 10堆。如果Alice一开始拿走了两堆，那么Bob可以拿走剩下的三堆。在这种情况下，Alice得到2 + 7 = 9堆。返回10，因为它更大。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">状态表示：</span><br><span class="line">	f[i, j]表示当石子为i~n，M=j时Alice可以得到的最大数量</span><br><span class="line">状态转移：</span><br><span class="line">	f[i][j] = max(f[i][j], s[n] - s[i - 1] - f[i + k][max(k, j)])</span><br><span class="line">	f[i + k][max(k, j)] 表示Bob可以获得的石子， s[n] - s[i - 1] - f[i + k][max(k, j)]表示Alice可以获得的石子</span><br><span class="line">	s[n] - s[i - 1]前缀和优化，表示i~n的石子数量</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">stoneGameII</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; piles)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = piles.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n + <span class="number">2</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">s</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">            s[i] = s[i - <span class="number">1</span>] + piles[i - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n;i;i --)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>;j &lt;= n;j ++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>;i + k - <span class="number">1</span> &lt;= n &amp;&amp; k &lt;= <span class="number">2</span> * j;k ++)</span><br><span class="line">                    f[i][j] = <span class="built_in">max</span>(f[i][j], s[n] - s[i - <span class="number">1</span>] - f[i + k][<span class="built_in">max</span>(k, j)]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h4></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Max</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> x &gt; y &#123;</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">stoneGameII</span><span class="params">(piles []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> n <span class="type">int</span> = <span class="built_in">len</span>(piles)</span><br><span class="line">    <span class="keyword">var</span> f  [<span class="number">105</span>][<span class="number">105</span>]<span class="type">int</span></span><br><span class="line">    <span class="keyword">var</span> s [<span class="number">105</span>]<span class="type">int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>;i &lt;= n;i += <span class="number">1</span> &#123;</span><br><span class="line">        s[i] = piles[i - <span class="number">1</span>] + s[i - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := n;i &gt; <span class="number">0</span>;i -- &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>;j &lt;= n;j ++ &#123;</span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">1</span>;i + k - <span class="number">1</span> &lt;= n &amp;&amp; k &lt;= <span class="number">2</span> * j;k ++ &#123;</span><br><span class="line">                f[i][j] = Max(f[i][j], s[n] - s[i - <span class="number">1</span>] - f[i + k][Max(k, j)]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> f[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/stone-game-ii/description/">1140. 石子游戏 II - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>记忆化搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -628,103 +628,6 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode1326.灌溉花园的最少水龙头数目</title>
-    <url>/2023/02/21/leetcode1326/</url>
-    <content><![CDATA[<p>在 x 轴上有一个一维的花园。花园长度为 <code>n</code>，从点 <code>0</code> 开始，到点 <code>n</code> 结束。</p>
-<p>花园里总共有 <code>n + 1</code> 个水龙头，分别位于 <code>[0, 1, ..., n]</code> 。</p>
-<p>给你一个整数 <code>n</code> 和一个长度为 <code>n + 1</code> 的整数数组 <code>ranges</code> ，其中 <code>ranges[i]</code> （下标从 0 开始）表示：如果打开点 <code>i</code> 处的水龙头，可以灌溉的区域为 <code>[i - ranges[i], i + ranges[i]]</code> 。</p>
-<p>请你返回可以灌溉整个花园的 <strong>最少水龙头数目</strong> 。如果花园始终存在无法灌溉到的地方，请你返回 <strong>-1</strong> 。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 5, ranges = [3,4,1,1,0,0]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">点 0 处的水龙头可以灌溉区间 [-3,3]</span><br><span class="line">点 1 处的水龙头可以灌溉区间 [-3,5]</span><br><span class="line">点 2 处的水龙头可以灌溉区间 [1,3]</span><br><span class="line">点 3 处的水龙头可以灌溉区间 [2,4]</span><br><span class="line">点 4 处的水龙头可以灌溉区间 [4,4]</span><br><span class="line">点 5 处的水龙头可以灌溉区间 [5,5]</span><br><span class="line">只需要打开点 1 处的水龙头即可灌溉整个花园 [0,5] 。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">由于花园的长度为n，可以将问题转化为选择最少的水龙头覆盖整个区间</span><br><span class="line">做法：</span><br><span class="line">	按照左端点排序，假设当前覆盖到的区间右端点为ed，只需要满足选择的子区间的左端点小于ed同时尽可能使ed变的更大</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minTaps</span><span class="params">(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; ranges)</span> </span>&#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">r</span>(n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt;= n;i ++)</span><br><span class="line">            r[i] = <span class="built_in">make_pair</span>(<span class="built_in">max</span>(<span class="number">0</span>, i - ranges[i]), <span class="built_in">min</span>(ranges[i] + i, n));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(r.<span class="built_in">begin</span>(), r.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, ed = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= n &amp;&amp; ed &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> next_ed = <span class="number">0</span>; <span class="comment">// 下一次的覆盖末端点</span></span><br><span class="line">            <span class="keyword">while</span> (i &lt;= n &amp;&amp; r[i].first &lt;= ed) &#123;</span><br><span class="line">                next_ed = <span class="built_in">max</span>(next_ed, r[i].second);</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (ed == next_ed) <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 当ed == nexted 时无法在选择新区间</span></span><br><span class="line"></span><br><span class="line">            res ++;</span><br><span class="line">            ed = next_ed;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden/description/">1326. 灌溉花园的最少水龙头数目 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>贪心</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode14.最长公共前缀</title>
-    <url>/2023/03/01/leetcode14/</url>
-    <content><![CDATA[<p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
-<p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出：&quot;fl&quot;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">比较所有字符串和最小长度字符串的公共前缀</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestCommonPrefix</span><span class="params">(vector&lt;string&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(strs.<span class="built_in">begin</span>(), strs.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> string&amp; a, <span class="type">const</span> string&amp; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> a.<span class="built_in">size</span>() &lt; b.<span class="built_in">size</span>();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> len = strs[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len;i ++) &#123;</span><br><span class="line">            <span class="type">char</span> t = strs[<span class="number">0</span>][i];</span><br><span class="line">            <span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>;j &lt; strs.<span class="built_in">size</span>();j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (strs[j][i] != t) flag = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (flag) res += t;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/longest-common-prefix/description/">14. 最长公共前缀 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>模拟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode15.三数之和</title>
-    <url>/2023/03/01/leetcode15/</url>
-    <content><![CDATA[<p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请</p>
-<p>你返回所有和为 <code>0</code> 且不重复的三元组。</p>
-<p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [-1,0,1,2,-1,-4]</span><br><span class="line">输出：[[-1,-1,2],[-1,0,1]]</span><br><span class="line">解释：</span><br><span class="line">nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。</span><br><span class="line">nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。</span><br><span class="line">nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。</span><br><span class="line">不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。</span><br><span class="line">注意，输出的顺序和三元组的顺序并不重要。</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、枚举每个数，先确定nums[i]，在排序后的情况下，通过双指针l，r分别从左边l = i + 1和右边n - 1</span><br><span class="line">往中间靠拢，找到nums[i] + nums[l] + nums[r] == 0的所有符合条件的搭配</span><br><span class="line">2、判重处理</span><br><span class="line">当i&gt;0(i不是第一个数)&amp;&amp;nums[i] == nums[i - 1]，表示当前确定好的数与上一个一样，需要直接continue</span><br><span class="line">同理，j&amp;nums[j]==nums[j-1] 需要直接continue</span><br><span class="line">3、</span><br><span class="line">while(j&lt;k-1&amp;&amp;nums[i]+nums[j]+nums[k-1]&gt;=0) k-- //要找到满足最小的k</span><br><span class="line">为什么 j&lt;k-1</span><br><span class="line">试探法，如果k的下一个数(k的左边的数)满足就用下一个数。</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>();i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>, k = nums.<span class="built_in">size</span>() - <span class="number">1</span>;j &lt; k;j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">while</span> (j &lt; k - <span class="number">1</span> &amp;&amp; nums[i] + nums[j] + nums[k - <span class="number">1</span>] &gt;= <span class="number">0</span>) k --;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[j] + nums[k] == <span class="number">0</span>) res.<span class="built_in">push_back</span>(&#123;nums[i], nums[j], nums[k]&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/3sum/description/">15. 三数之和 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>leetcode127.单词接龙</title>
     <url>/2023/02/23/leetcode127/</url>
     <content><![CDATA[<p>字典 <code>wordList</code> 中从单词 <code>beginWord</code> 和 <code>endWord</code> 的 <strong>转换序列</strong> 是一个按下述规格形成的序列 <code>beginWord -&gt; s1 -&gt; s2 -&gt; ... -&gt; sk</code>：</p>
@@ -776,6 +679,103 @@
       <tags>
         <tag>BFS</tag>
         <tag>单源最短路径</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode14.最长公共前缀</title>
+    <url>/2023/03/01/leetcode14/</url>
+    <content><![CDATA[<p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
+<p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span><br><span class="line">输出：&quot;fl&quot;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">比较所有字符串和最小长度字符串的公共前缀</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestCommonPrefix</span><span class="params">(vector&lt;string&gt;&amp; strs)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(strs.<span class="built_in">begin</span>(), strs.<span class="built_in">end</span>(), [&amp;](<span class="type">const</span> string&amp; a, <span class="type">const</span> string&amp; b) &#123;</span><br><span class="line">            <span class="keyword">return</span> a.<span class="built_in">size</span>() &lt; b.<span class="built_in">size</span>();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> len = strs[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        string res = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; len;i ++) &#123;</span><br><span class="line">            <span class="type">char</span> t = strs[<span class="number">0</span>][i];</span><br><span class="line">            <span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>;j &lt; strs.<span class="built_in">size</span>();j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (strs[j][i] != t) flag = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (flag) res += t;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/longest-common-prefix/description/">14. 最长公共前缀 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode1326.灌溉花园的最少水龙头数目</title>
+    <url>/2023/02/21/leetcode1326/</url>
+    <content><![CDATA[<p>在 x 轴上有一个一维的花园。花园长度为 <code>n</code>，从点 <code>0</code> 开始，到点 <code>n</code> 结束。</p>
+<p>花园里总共有 <code>n + 1</code> 个水龙头，分别位于 <code>[0, 1, ..., n]</code> 。</p>
+<p>给你一个整数 <code>n</code> 和一个长度为 <code>n + 1</code> 的整数数组 <code>ranges</code> ，其中 <code>ranges[i]</code> （下标从 0 开始）表示：如果打开点 <code>i</code> 处的水龙头，可以灌溉的区域为 <code>[i - ranges[i], i + ranges[i]]</code> 。</p>
+<p>请你返回可以灌溉整个花园的 <strong>最少水龙头数目</strong> 。如果花园始终存在无法灌溉到的地方，请你返回 <strong>-1</strong> 。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 5, ranges = [3,4,1,1,0,0]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">点 0 处的水龙头可以灌溉区间 [-3,3]</span><br><span class="line">点 1 处的水龙头可以灌溉区间 [-3,5]</span><br><span class="line">点 2 处的水龙头可以灌溉区间 [1,3]</span><br><span class="line">点 3 处的水龙头可以灌溉区间 [2,4]</span><br><span class="line">点 4 处的水龙头可以灌溉区间 [4,4]</span><br><span class="line">点 5 处的水龙头可以灌溉区间 [5,5]</span><br><span class="line">只需要打开点 1 处的水龙头即可灌溉整个花园 [0,5] 。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">由于花园的长度为n，可以将问题转化为选择最少的水龙头覆盖整个区间</span><br><span class="line">做法：</span><br><span class="line">	按照左端点排序，假设当前覆盖到的区间右端点为ed，只需要满足选择的子区间的左端点小于ed同时尽可能使ed变的更大</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minTaps</span><span class="params">(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; ranges)</span> </span>&#123;</span><br><span class="line">        vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">r</span>(n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt;= n;i ++)</span><br><span class="line">            r[i] = <span class="built_in">make_pair</span>(<span class="built_in">max</span>(<span class="number">0</span>, i - ranges[i]), <span class="built_in">min</span>(ranges[i] + i, n));</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(r.<span class="built_in">begin</span>(), r.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, ed = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= n &amp;&amp; ed &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> next_ed = <span class="number">0</span>; <span class="comment">// 下一次的覆盖末端点</span></span><br><span class="line">            <span class="keyword">while</span> (i &lt;= n &amp;&amp; r[i].first &lt;= ed) &#123;</span><br><span class="line">                next_ed = <span class="built_in">max</span>(next_ed, r[i].second);</span><br><span class="line">                i ++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (ed == next_ed) <span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// 当ed == nexted 时无法在选择新区间</span></span><br><span class="line"></span><br><span class="line">            res ++;</span><br><span class="line">            ed = next_ed;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden/description/">1326. 灌溉花园的最少水龙头数目 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode15.三数之和</title>
+    <url>/2023/03/01/leetcode15/</url>
+    <content><![CDATA[<p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请</p>
+<p>你返回所有和为 <code>0</code> 且不重复的三元组。</p>
+<p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [-1,0,1,2,-1,-4]</span><br><span class="line">输出：[[-1,-1,2],[-1,0,1]]</span><br><span class="line">解释：</span><br><span class="line">nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。</span><br><span class="line">nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。</span><br><span class="line">nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。</span><br><span class="line">不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。</span><br><span class="line">注意，输出的顺序和三元组的顺序并不重要。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、枚举每个数，先确定nums[i]，在排序后的情况下，通过双指针l，r分别从左边l = i + 1和右边n - 1</span><br><span class="line">往中间靠拢，找到nums[i] + nums[l] + nums[r] == 0的所有符合条件的搭配</span><br><span class="line">2、判重处理</span><br><span class="line">当i&gt;0(i不是第一个数)&amp;&amp;nums[i] == nums[i - 1]，表示当前确定好的数与上一个一样，需要直接continue</span><br><span class="line">同理，j&amp;nums[j]==nums[j-1] 需要直接continue</span><br><span class="line">3、</span><br><span class="line">while(j&lt;k-1&amp;&amp;nums[i]+nums[j]+nums[k-1]&gt;=0) k-- //要找到满足最小的k</span><br><span class="line">为什么 j&lt;k-1</span><br><span class="line">试探法，如果k的下一个数(k的左边的数)满足就用下一个数。</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>();i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>, k = nums.<span class="built_in">size</span>() - <span class="number">1</span>;j &lt; k;j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">while</span> (j &lt; k - <span class="number">1</span> &amp;&amp; nums[i] + nums[j] + nums[k - <span class="number">1</span>] &gt;= <span class="number">0</span>) k --;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[j] + nums[k] == <span class="number">0</span>) res.<span class="built_in">push_back</span>(&#123;nums[i], nums[j], nums[k]&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/3sum/description/">15. 三数之和 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -846,6 +846,70 @@
       </tags>
   </entry>
   <entry>
+    <title>leetcode19.删除链表的倒数第 N 个结点</title>
+    <url>/2023/03/02/leetcode19/</url>
+    <content><![CDATA[<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], n = 2</span><br><span class="line">输出：[1,2,3,5]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">快慢指针，快指针先走n，慢指针开始走，当快指针走到尾部时，慢指针走到倒数第n个</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* fast = head, *slow = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (fast == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> head-&gt;next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (fast-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/">19. 删除链表的倒数第 N 个结点 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode21.合并两个有序链表</title>
+    <url>/2023/03/03/leetcode21/</url>
+    <content><![CDATA[<p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：l1 = [1,2,4], l2 = [1,3,4]</span><br><span class="line">输出：[1,1,2,3,4,4]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">归并思想</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummpy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *p = dummpy;</span><br><span class="line">        ListNode *p1 = list1, *p2 = list2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="literal">nullptr</span> &amp;&amp; p2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1-&gt;val &lt; p2-&gt;val) &#123;</span><br><span class="line">                p-&gt;next = p1;</span><br><span class="line">                p1 = p1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = p2;</span><br><span class="line">                p2 = p2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p1 != <span class="literal">nullptr</span>) p-&gt;next = p1;</span><br><span class="line">        <span class="keyword">if</span> (p2 != <span class="literal">nullptr</span>) p-&gt;next = p2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummpy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/merge-two-sorted-lists/description/">21. 合并两个有序链表 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>归并</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode18.四数之和</title>
     <url>/2023/03/02/leetcode18/</url>
     <content><![CDATA[<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> ，和一个目标值 <code>target</code> 。请你找出并返回满足下述全部条件且<strong>不重复</strong>的四元组 <code>[nums[a], nums[b], nums[c], nums[d]]</code> （若两个四元组元素一一对应，则认为两个四元组重复）：</p>
@@ -875,38 +939,6 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>;j &lt; n;j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = j + <span class="number">1</span>, u = n - <span class="number">1</span>;k &lt; u;k ++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (k &gt; j + <span class="number">1</span> &amp;&amp; nums[k] == nums[k - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">while</span> (k &lt; u - <span class="number">1</span> &amp;&amp; (LL)nums[i] + nums[j] + nums[k] + nums[u - <span class="number">1</span>] &gt;= (LL)target) u --;</span><br><span class="line">                    <span class="keyword">if</span> ((LL)nums[i] + nums[j] + nums[k] + nums[u] == (LL)target)</span><br><span class="line">                        res.<span class="built_in">push_back</span>(&#123;nums[i], nums[j], nums[k], nums[u]&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>[原题链接](<a href="https://leetcode.cn/problems/4sum/description/">18. 四数之和 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode19.删除链表的倒数第 N 个结点</title>
-    <url>/2023/03/02/leetcode19/</url>
-    <content><![CDATA[<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], n = 2</span><br><span class="line">输出：[1,2,3,5]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">快慢指针，快指针先走n，慢指针开始走，当快指针走到尾部时，慢指针走到倒数第n个</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* fast = head, *slow = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (fast == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> head-&gt;next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (fast-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/">19. 删除链表的倒数第 N 个结点 - 力扣（Leetcode）</a>)</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -951,38 +983,6 @@
       </categories>
       <tags>
         <tag>栈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>leetcode21.合并两个有序链表</title>
-    <url>/2023/03/03/leetcode21/</url>
-    <content><![CDATA[<p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
-<span id="more"></span>
-
-<hr>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：l1 = [1,2,4], l2 = [1,3,4]</span><br><span class="line">输出：[1,1,2,3,4,4]</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">归并思想</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
-<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummpy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>), *p = dummpy;</span><br><span class="line">        ListNode *p1 = list1, *p2 = list2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (p1 != <span class="literal">nullptr</span> &amp;&amp; p2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1-&gt;val &lt; p2-&gt;val) &#123;</span><br><span class="line">                p-&gt;next = p1;</span><br><span class="line">                p1 = p1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = p2;</span><br><span class="line">                p2 = p2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p1 != <span class="literal">nullptr</span>) p-&gt;next = p1;</span><br><span class="line">        <span class="keyword">if</span> (p2 != <span class="literal">nullptr</span>) p-&gt;next = p2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummpy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>[原题链接](<a href="https://leetcode.cn/problems/merge-two-sorted-lists/description/">21. 合并两个有序链表 - 力扣（Leetcode）</a>)</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>归并</tag>
       </tags>
   </entry>
   <entry>
@@ -1133,7 +1133,7 @@
       </tags>
   </entry>
   <entry>
-    <title>leetcode25</title>
+    <title>leetcode25.K个一组翻转链表</title>
     <url>/2023/03/03/leetcode25/</url>
     <content><![CDATA[<p>给你链表的头节点 <code>head</code> ，每 <code>k</code> 个节点一组进行翻转，请你返回修改后的链表。</p>
 <p><code>k</code> 是一个正整数，它的值小于或等于链表的长度。如果节点总数不是 <code>k</code> 的整数倍，那么请将最后剩余的节点保持原有顺序。</p>
@@ -1147,7 +1147,7 @@
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">模拟</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1164,6 +1164,194 @@
       </categories>
       <tags>
         <tag>模拟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode26.删除有序数组中的重复项</title>
+    <url>/2023/03/06/leetcode26/</url>
+    <content><![CDATA[<p>给你一个 <strong>升序排列</strong> 的数组 <code>nums</code> ，请你**<a href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95"> 原地</a>** 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 <strong>一致</strong> 。</p>
+<p>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 <code>k</code> 个元素，那么 <code>nums</code> 的前 <code>k</code> 个元素应该保存最终结果。</p>
+<p>将最终结果插入 <code>nums</code> 的前 <code>k</code> 个位置后返回 <code>k</code> 。</p>
+<p>不要使用额外的空间，你必须在 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地 </a>修改输入数组</strong> 并在使用 O(1) 额外空间的条件下完成。</p>
+<p><strong>判题标准:</strong></p>
+<p>系统会用下面的代码来测试你的题解:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int[] nums = [...]; // 输入数组</span><br><span class="line">int[] expectedNums = [...]; // 长度正确的期望答案</span><br><span class="line"></span><br><span class="line">int k = removeDuplicates(nums); // 调用</span><br><span class="line"></span><br><span class="line">assert k == expectedNums.length;</span><br><span class="line">for (int i = 0; i &lt; k; i++) &#123;</span><br><span class="line">    assert nums[i] == expectedNums[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果所有断言都通过，那么您的题解将被 <strong>通过</strong>。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,1,2]</span><br><span class="line">输出：2, nums = [1,2,_]</span><br><span class="line">解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</span><br><span class="line">示例 2：</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">升序数组重复项一定相邻</span><br><span class="line"></span><br><span class="line">快慢指针：比较fast和slow对应数值是否相等，不相等则将fast对应值付给slow</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeDuplicates</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> fast = <span class="number">0</span>, slow = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (fast &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[slow] != nums[fast]) &#123;</span><br><span class="line">                nums[++ slow] = nums[fast];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fast ++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> slow + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array/">26. 删除有序数组中的重复项 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode27.移除元素</title>
+    <url>/2023/03/06/leetcode27/</url>
+    <content><![CDATA[<p>给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地</a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 <code>O(1)</code> 额外空间并 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地 </a>修改输入数组</strong>。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p><strong>说明:</strong></p>
+<p>为什么返回数值是整数，但输出的答案是数组呢?</p>
+<p>请注意，输入数组是以<strong>「引用」</strong>方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+<p>你可以想象内部操作如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝</span><br><span class="line">int len = removeElement(nums, val);</span><br><span class="line"></span><br><span class="line">// 在函数里修改输入数组对于调用者是可见的。</span><br><span class="line">// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [3,2,2,3], val = 3</span><br><span class="line">输出：2, nums = [2,2]</span><br><span class="line">解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">快慢指针：比较fast和val对应数值是否相等，不相等则将fast对应值付给slow</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> fast = <span class="number">0</span>, slow = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (fast &lt; n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[fast] != val) &#123;</span><br><span class="line">                nums[slow ++] = nums[fast];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fast ++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/remove-element/">27. 移除元素 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode28.找出字符串中第一个匹配项的下标</title>
+    <url>/2023/03/06/leetcode28/</url>
+    <content><![CDATA[<p>给你两个字符串 <code>haystack</code> 和 <code>needle</code> ，请你在 <code>haystack</code> 字符串中找出 <code>needle</code> 字符串的第一个匹配项的下标（下标从 0 开始）。如果 <code>needle</code> 不是 <code>haystack</code> 的一部分，则返回 <code>-1</code> 。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：haystack = &quot;sadbutsad&quot;, needle = &quot;sad&quot;</span><br><span class="line">输出：0</span><br><span class="line">解释：&quot;sad&quot; 在下标 0 和 6 处匹配。</span><br><span class="line">第一个匹配项的下标是 0 ，所以返回 0 。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">KMP算法</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">strStr</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = s.<span class="built_in">size</span>(), n = p.<span class="built_in">size</span>();</span><br><span class="line">        s = <span class="string">&quot; &quot;</span> + s, p = <span class="string">&quot; &quot;</span> + p;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ne</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">-1</span>;</span><br><span class="line">		<span class="comment">// 求解next数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>, j = <span class="number">0</span>;i &lt;= n;i ++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="number">1</span>]) j = ne[j];</span><br><span class="line">            <span class="keyword">if</span> (p[i] == p[j + <span class="number">1</span>]) j ++;</span><br><span class="line">            ne[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">// 匹配过程</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;i &lt;= m;i ++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="number">1</span>]) j = ne[j];</span><br><span class="line">            <span class="keyword">if</span> (s[i] == p[j + <span class="number">1</span>]) j ++;</span><br><span class="line">            <span class="keyword">if</span> (j == n) &#123;</span><br><span class="line">                res = i - n;</span><br><span class="line">                j = ne[j];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/">28. 找出字符串中第一个匹配项的下标 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>KMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode29.两数相除</title>
+    <url>/2023/03/06/leetcode29/</url>
+    <content><![CDATA[<p>给你两个整数，被除数 <code>dividend</code> 和除数 <code>divisor</code>。将两数相除，要求 <strong>不使用</strong> 乘法、除法和取余运算。</p>
+<p>整数除法应该向零截断，也就是截去（<code>truncate</code>）其小数部分。例如，<code>8.345</code> 将被截断为 <code>8</code> ，<code>-2.7335</code> 将被截断至 <code>-2</code> 。</p>
+<p>返回被除数 <code>dividend</code> 除以除数 <code>divisor</code> 得到的 <strong>商</strong> 。</p>
+<p><strong>注意：</strong>假设我们的环境只能存储 <strong>32 位</strong> 有符号整数，其数值范围是 <code>[−231, 231 − 1]</code> 。本题中，如果商 <strong>严格大于</strong> <code>231 − 1</code> ，则返回 <code>231 − 1</code> ；如果商 <strong>严格小于</strong> <code>-231</code> ，则返回 <code>-231</code> 。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: dividend = 10, divisor = 3</span><br><span class="line">输出: 3</span><br><span class="line">解释: 10/3 = 3.33333.. ，向零截断后得到 3 。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">定义商为n,则n可以通过x与y的减法得到</span><br><span class="line">while (x) &#123;</span><br><span class="line">	x -= y;</span><br><span class="line">	n ++;</span><br><span class="line">&#125;</span><br><span class="line">由于数据范围的影响，-2^31 &lt;= dividend, divisor &lt;= 2^31 - 1，最坏情况下需要2^31 - 1减法操作会超时</span><br><span class="line">因此，需要优化</span><br><span class="line">x 可以表示为x = 2 ^ 0 * y + 2 ^ 1 * y + …… + 2 ^ 31 - 1 * y;</span><br><span class="line">因此只需要考虑每一位是否需要，常数时间复杂度</span><br><span class="line">为了方便起见，可以从大到小考虑</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">divide</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">        vector&lt;LL&gt; exp;<span class="comment">//指数项</span></span><br><span class="line">        <span class="type">bool</span> is_minus = <span class="literal">false</span>;<span class="comment">//负号</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> &amp;&amp; y &gt; <span class="number">0</span> || x &gt; <span class="number">0</span> &amp;&amp; y &lt; <span class="number">0</span>) is_minus = <span class="literal">true</span>;<span class="comment">//异号相除的结果为负</span></span><br><span class="line">        <span class="comment">//预处理2*b^i</span></span><br><span class="line">        LL a = <span class="built_in">abs</span>((LL)x), b = <span class="built_in">abs</span>((LL)y);<span class="comment">//先直接用正数算，到时候结果加上负号就可以</span></span><br><span class="line">        <span class="keyword">for</span> (LL i = b; i &lt;= a; i = i + i) exp.<span class="built_in">push_back</span>(i);<span class="comment">//i从除数开始，只要i还小于被除数a，就倍增i，然后将指数项插入到exp数组里</span></span><br><span class="line"></span><br><span class="line">        LL res = <span class="number">0</span>;<span class="comment">//存答案</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = exp.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i -- )<span class="comment">//从大到小开始减</span></span><br><span class="line">            <span class="keyword">if</span> (a &gt;= exp[i]) &#123;<span class="comment">//还可以做减法</span></span><br><span class="line">                a -= exp[i];<span class="comment">//减去对应的数</span></span><br><span class="line">                res += <span class="number">1ll</span> &lt;&lt; i;<span class="comment">//左移一位，相当于乘以2，因为是基于倍增的思想，所以能减多少次，就左移多少次即可得到结果</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (is_minus) res = -res;<span class="comment">//负号的话就直接取反</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (res &gt; INT_MAX || res &lt; INT_MIN) res = INT_MAX;<span class="comment">//处理溢出的情况</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/divide-two-integers/">29. 两数相除 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>模拟</tag>
+        <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode30.串联所有单词的子串</title>
+    <url>/2023/03/06/leetcode30/</url>
+    <content><![CDATA[<p>给定一个字符串 <code>s</code> 和一个字符串数组 <code>words</code><strong>。</strong> <code>words</code> 中所有字符串 <strong>长度相同</strong>。</p>
+<p> <code>s</code> 中的 <strong>串联子串</strong> 是指一个包含 <code>words</code> 中所有字符串以任意顺序排列连接起来的子串。</p>
+<ul>
+<li>例如，如果 <code>words = [&quot;ab&quot;,&quot;cd&quot;,&quot;ef&quot;]</code>， 那么 <code>&quot;abcdef&quot;</code>， <code>&quot;abefcd&quot;</code>，<code>&quot;cdabef&quot;</code>， <code>&quot;cdefab&quot;</code>，<code>&quot;efabcd&quot;</code>， 和 <code>&quot;efcdab&quot;</code> 都是串联子串。 <code>&quot;acdbef&quot;</code> 不是串联子串，因为他不是任何 <code>words</code> 排列的连接。</li>
+</ul>
+<p>返回所有串联字串在 <code>s</code> 中的开始索引。你可以以 <strong>任意顺序</strong> 返回答案。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;barfoothefoobarman&quot;, words = [&quot;foo&quot;,&quot;bar&quot;]</span><br><span class="line">输出：[0,9]</span><br><span class="line">解释：因为 words.length == 2 同时 words[i].length == 3，连接的子字符串的长度必须为 6。</span><br><span class="line">子串 &quot;barfoo&quot; 开始位置是 0。它是 words 中以 [&quot;bar&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;foobar&quot; 开始位置是 9。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br><span class="line">输出顺序无关紧要。返回 [9,0] 也是可以的。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一种比较简单的暴力做法是枚举s的每个位置，然后考虑以该位置为起点是否存在一个由words里所有单词拼接而成的字符串，由于每个word长度相同，可以利用哈希表，一个单词一个单词的来枚举，看最后是否用完了words里的单词并且中间不存在不合法的单词。这样的复杂度为O(n∗w∗m)，n为字符串s的长度，w是单词的长度，m是单词列表words的长度。不过这个做法会超时。</span><br><span class="line"></span><br><span class="line">下面我们考虑怎么优化这个做法，因为有单词长度都相同这个限制，问题可以转化成将字符串s切成每段长度为w的序列，那么不同的序列最多有多少个（长度不足w的抛弃）？答案是w个，从起点0,1,2,...,w-1开始最多可以有w个不同的单词序列，从w开始的序列和从0开始的是等价的。</span><br><span class="line"></span><br><span class="line">所以我们就可以枚举每个序列，对于每个序列我们可以用双指针来搜索包含words所有单词的连续序列。这里是以单词为单位进行双指针移动，双指针的思路类似于LeetCode 3. Longest Substring Without Repeating Characters ， 我们每次将窗口右端的单词加入哈希表，如果它的个数大于words中的个数，当前序列肯定不合法，我们不断地移动左端点使得窗口再次合法，当窗口长度为m时说明我们找到了一个答案。</span><br><span class="line">共有w个序列，每次枚举序列需要O(n)的复杂度，总时间复杂度为O(n∗w)，比暴力做法优化掉了单词列表长度m.</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findSubstring</span><span class="params">(string s, vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (words.<span class="built_in">empty</span>()) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>(), m = words.<span class="built_in">size</span>(), w = words[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;string, <span class="type">int</span>&gt; cnt;</span><br><span class="line">        <span class="keyword">for</span> (string&amp; word : words)</span><br><span class="line">            cnt[word] ++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; w;i ++) &#123;</span><br><span class="line">            unordered_map&lt;string, <span class="type">int</span>&gt; window;</span><br><span class="line">            <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i;j + w &lt;= n;j += w) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt;= i + m * w) &#123;</span><br><span class="line">                    string word = s.<span class="built_in">substr</span>(j - m * w, w);</span><br><span class="line">                    window[word] --;</span><br><span class="line">                    <span class="keyword">if</span> (window[word] &lt; cnt[word]) num --;</span><br><span class="line">                &#125;</span><br><span class="line">                string word = s.<span class="built_in">substr</span>(j, w);</span><br><span class="line">                window[word] ++;</span><br><span class="line">                <span class="keyword">if</span> (window[word] &lt;= cnt[word]) num ++;</span><br><span class="line">                <span class="keyword">if</span> (num == m) res.<span class="built_in">push_back</span>(j - (m - <span class="number">1</span>) * w);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>[原题链接](<a href="https://leetcode.cn/problems/substring-with-concatenation-of-all-words/">30. 串联所有单词的子串 - 力扣（Leetcode）</a>)</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>哈希表</tag>
+        <tag>双指针</tag>
+        <tag>滑动窗口</tag>
       </tags>
   </entry>
   <entry>
