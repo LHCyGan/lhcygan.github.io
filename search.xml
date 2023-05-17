@@ -2211,7 +2211,7 @@
 <hr>
 <hr>
 <p><strong>分析：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">此题要求统计每个区间[L, R]中的符合条件的三种数字的数量</span><br><span class="line">暴力：</span><br><span class="line">	最容易想到的做法是第一层循环枚举区间数量，第二层枚举改区间并统计符合的数字，此时时间复杂度为1000 * 1000000，一定会超时</span><br><span class="line">优化：</span><br><span class="line">	统计某个区间中的满足某个条件的数字个数，想到前缀和，因此用空间换时间的做法，用前缀和提前统计。</span><br></pre></td></tr></table></figure>
+<h4 id="难度：容易"><a href="#难度：容易" class="headerlink" title="难度：容易"></a>难度：容易</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">此题要求统计每个区间[L, R]中的符合条件的三种数字的数量</span><br><span class="line">暴力：</span><br><span class="line">	最容易想到的做法是第一层循环枚举区间数量，第二层枚举改区间并统计符合的数字，此时时间复杂度为1000 * 1000000，一定会超时</span><br><span class="line">优化：</span><br><span class="line">	统计某个区间中的满足某个条件的数字个数，想到前缀和，因此用空间换时间的做法，用前缀和提前统计。</span><br></pre></td></tr></table></figure>
 
 
 
