@@ -2447,4 +2447,109 @@
         <tag>模拟</tag>
       </tags>
   </entry>
+  <entry>
+    <title>kdxf提前批20230715-第一题</title>
+    <url>/2023/07/18/kdxf%E6%8F%90%E5%89%8D%E6%89%B920230715-%E7%AC%AC%E4%B8%80%E9%A2%98/</url>
+    <content><![CDATA[<p>给定一个长度为n的数组，数组元素为a1, a2, . . , an，每次能删除任意a的任意一位，求将所有数字变成0最少需要几步。例如103若删除第1位则变成3;若删除第2位则变成13;若删除第3位则变成10。</p>
+<p><strong>输入描述</strong></p>
+<p>第一行一个正整数n代表数组长度。接下来一行n个数第j个数代表a。</p>
+<p>1≤n ≤10^5 0≤ai≤10^9</p>
+<p><strong>输出描述</strong></p>
+<p>输出一行一个数代表答案。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：</span><br><span class="line">5</span><br><span class="line">10 13 22 100 30</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<h4 id="难度：容易"><a href="#难度：容易" class="headerlink" title="难度：容易"></a>难度：容易</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">遍历nums中的每个数字，得到不为0的数位即可。 最大位数为10，因此时间复杂度为10 * 1e5</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">		cin &gt;&gt; x;	</span><br><span class="line">		<span class="type">int</span> t = x;</span><br><span class="line">		<span class="type">int</span> tot = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (t) &#123;</span><br><span class="line">			tot += (<span class="type">int</span>)(t % <span class="number">10</span> != <span class="number">0</span>);</span><br><span class="line">			t /= <span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		res += tot;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>java</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.plaf.synth.SynthTextAreaUI;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>  &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> in.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> in.nextInt();</span><br><span class="line">            <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> x;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tot</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (t != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (t % <span class="number">10</span> != <span class="number">0</span>) tot ++;</span><br><span class="line">                t /= <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            res += tot;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Python</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">arr = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> arr:</span><br><span class="line">        t, tot = x, <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> t != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> t % <span class="number">10</span> != <span class="number">0</span>: tot += <span class="number">1</span></span><br><span class="line">            t /= <span class="number">10</span></span><br><span class="line">        ans += tot</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"></span><br><span class="line">main()    </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Golang</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> n <span class="type">int</span></span><br><span class="line">    fmt.Scan(&amp;n)</span><br><span class="line"></span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ &#123;</span><br><span class="line">        <span class="keyword">var</span> x <span class="type">int</span></span><br><span class="line">        fmt.Scan(&amp;x)</span><br><span class="line">        t := x</span><br><span class="line">        tot := <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> t != <span class="number">0</span> &#123;</span><br><span class="line">            tot += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> t % <span class="number">10</span> == <span class="number">0</span> &#123;</span><br><span class="line">                tot -= <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            t /= <span class="number">10</span></span><br><span class="line">        &#125;</span><br><span class="line">        res += tot</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fmt.Println(res)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>模拟</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kdxf提前批20230715-第三题</title>
+    <url>/2023/07/18/kdxf%E6%8F%90%E5%89%8D%E6%89%B920230715-%E7%AC%AC%E4%B8%89%E9%A2%98/</url>
+    <content><![CDATA[<p>定义一个“模板串”为一个由数字字符和′?”组成的字符串。我们可以通过将问号替换成数字字符来得到正整数。显然，一个模板串可能会和多个正整数匹配。例如: “1?2”可以和102或者132等正整数匹配。请注意，匹配的正整数不能包含前导零，例如”??1”可以匹配101，但不能匹配001。小红拿到了一个模板串，她想知道，和这个模板串匹配的正整数中，第k小的是多少?</p>
+<p><strong>输入描述</strong></p>
+<p>第一行输入一个正整数t，代表询问次数。接下来的2* t行，每两行为一次询问: 第一行输入一个字符串，仅由数字字符和?’组成。第二行输入一个正整数k，代表询问的是第k小。</p>
+<p>1≤t ≤ 10^4 1≤k≤10 ^9</p>
+<p>字符串长度不超过30。</p>
+<p><strong>输出描述</strong></p>
+<p>输出t行，每行输出一个答案。如果一共都没有k个匹配的正整数，则输出-1。否则输出第小的匹配的正整数。</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：</span><br><span class="line">4</span><br><span class="line">??1</span><br><span class="line">1</span><br><span class="line">22?</span><br><span class="line">100000000</span><br><span class="line">2??</span><br><span class="line">3</span><br><span class="line">000???</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">101</span><br><span class="line">-1</span><br><span class="line">202</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><strong>分析：</strong></p>
+<h4 id="难度：容易"><a href="#难度：容易" class="headerlink" title="难度：容易"></a>难度：容易</h4><ul>
+<li><strong>思维</strong></li>
+</ul>
+<p>这种方法的时间复杂度为 $O(k \log n)$，其中 $k$ 为模板串中问号的个数，$n$ 为最大的匹配数字。</p>
+<p>具体地，我们可以将第 $k$ 个数字转化为字符串，然后将该字符串中的每个数字依次替换原字符串中的问号。如果第一个数字为 $0$，则需要将其替换为 $1$。需要注意的是，如果字符串中问号的个数少于数字的位数，则无法匹配该数字，此时需要特判并输出 $-1$。</p>
+<hr>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><ul>
+<li><h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>java</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Python</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Golang</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>思维题</category>
+        <category>DFS</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
 </search>
